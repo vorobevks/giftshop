@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Baloo Bhaina', cursive;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #313030;
+}
+a:hover {
+  color: #615858;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+.header .top-header {
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.header .top-header .login-reg {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+.header .top-header .feedback {
+  width: 160px;
+}
+.header .full-background {
+  background-image: url("/images/bg1.jpg");
+  background-size: contain;
+}
+.header .bottom-header {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .bottom-header .logo img {
+  height: 50px;
+}
+.header .bottom-header .menu {
+  display: flex;
+  justify-content: space-between;
+}
+.header .bottom-header .menu .menu-item {
+  list-style-type: none;
+  width: 150px;
+  height: 100px;
+  text-align: center;
+}
+.header .bottom-header .menu .menu-item .menu-link {
+  display: block;
+  height: 100%;
+  color: black;
+  font-weight: 900;
+}
+.header .bottom-header .menu .menu-item .menu-link:hover {
+  background-color: #def12b;
+}
+.header .bottom-header .menu .menu-item .icon {
+  position: relative;
+  display: inline-block;
+  margin-top: 25px;
+  width: 22px;
+  height: 20px;
+  left: -5px;
+  top: 1px;
+}
+.header .bottom-header .menu .menu-item .delivery-icon {
+  background: url("/images/delivery.png");
+  background-size: cover;
+}
+.header .bottom-header .menu .menu-item .pay-icon {
+  background: url("/images/card.png");
+  background-size: cover;
+}
+.header .bottom-header .menu .menu-item .contact-icon {
+  background: url("/images/mail.png");
+  background-size: cover;
+}
+.header .bottom-header .menu .menu-item .cart-icon {
+  background: url("/images/basket.png");
+  background-size: cover;
+}
+.header .bottom-header .menu .menu-item .info {
+  display: block;
+  font-weight: 300;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.main .left-sidebar {
+  width: 22%;
+}
+.main .left-sidebar ul {
+  list-style-type: none;
+}
+.main .left-sidebar .left-sidebar-item {
+  border-bottom: 1px dotted black;
+}
+.main .left-sidebar .left-sidebar-link {
+  display: block;
+}
+.main .left-sidebar .left-sidebar-link:hover {
+  background-color: gainsboro;
+}
+.main .content {
+  width: 760px;
+}
+.main .content .text {
+  font-size: 20px;
+}
+.main .content .slider {
+  height: 300px;
+  outline: 1px solid black;
+}
+.main .content .search-group .search {
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.main .content .search-group .search .search-text {
+  flex-grow: 15;
+  margin-right: 10px;
+}
+.main .content .search-group .search .search-button {
+  flex-grow: 2;
+  background-color: #ffcf0f;
+  border-radius: 10px;
+}
+.main .content .product-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.main .content .product-list .product-item {
+  height: 250px;
+  width: 25%;
+}
+.main .content .product-list .product-link:hover .product-name {
+  color: red;
+}
+.main .content .product-list .product-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #432966;
+}
+.main .content .product-list .image-block {
+  line-height: 180px;
+  text-align: center;
+}
+.main .content .product-list .product-image {
+  margin: 0 auto;
+  max-width: 96%;
+  max-height: 170px;
+  line-height: 180px;
+  vertical-align: middle;
+}
+.main .content .product-list .product-name,
+.main .content .product-list .product-price {
+  display: block;
+}
+.main .content .product-list .list_pagination {
+  display: flex;
+}
+.main .content .product-list .list_pagination .item_pagination {
+  list-style-type: none;
+  width: 50px;
+  border: 1px dotted black;
+  text-align: center;
+}
+.main .content .product-list .link_pagination {
+  display: block;
+}
+.main .content .product-list-recommendation {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.main .content .product-list-recommendation .product-item {
+  height: 200px;
+  width: 20%;
+}
+.main .content .product-list-recommendation .product-link:hover .product-name {
+  color: red;
+}
+.main .content .product-list-recommendation .product-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #432966;
+}
+.main .content .product-list-recommendation .image-block {
+  line-height: 130px;
+  text-align: center;
+}
+.main .content .product-list-recommendation .product-image {
+  margin: 0 auto;
+  max-width: 96%;
+  max-height: 120px;
+  line-height: 130px;
+  vertical-align: middle;
+}
+.main .content .product-list-recommendation .product-name,
+.main .content .product-list-recommendation .product-price {
+  display: block;
+}
+.main .content .category-path {
+  color: #8c8c8c;
+  font-size: 13px;
+}
+.main .content .category-path a {
+  color: #8c8c8c;
+}
+.main .content .product {
+  display: flex;
+  padding: 20px 0;
+}
+.main .content .product .photo-product {
+  width: 50%;
+}
+.main .content .product .photo-product .main-photo-product {
+  width: 380px;
+  line-height: 380px;
+  text-align: center;
+}
+.main .content .product .photo-product .main-photo-product img {
+  max-width: 380px;
+  max-height: 380px;
+  vertical-align: middle;
+}
+.main .content .product .photo-product .small-photo-block {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.main .content .product .photo-product .small-photo-block .small-photo-item {
+  width: 33.33333333%;
+  height: 126px;
+  line-height: 126px;
+  text-align: center;
+}
+.main .content .product .photo-product .small-photo-block img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+.main .content .product .photo-product .small-photo-block .small-photo-item:hover {
+  outline: 1px solid #8c8c8c;
+}
+.main .content .product .description-block {
+  width: 50%;
+}
+.main .content .product .description-block .price-and-delivery {
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.main .content .product .description-block .price-and-delivery .price span {
+  font-weight: bolder;
+  font-size: 30px;
+  color: #9ac111;
+  display: block;
+}
+.main .content .product .description-block .price-and-delivery .price a {
+  margin-top: -5px;
+  font-size: 12px;
+  border-bottom: 0.5px dotted black;
+  color: black;
+  display: block;
+}
+.main .content .product .description-block .price-and-delivery .price a:hover {
+  border-bottom: none;
+}
+.main .content .product .description-block .price-and-delivery .delivery {
+  font-size: 14px;
+}
+.main .content .product .description-block .price-and-delivery .delivery span {
+  color: #9ac111;
+}
+.main .content .product .description-block .buy-block {
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: 40px;
+}
+.main .content .product .description-block .buy-block .button {
+  width: 43%;
+  height: 40px;
+  border-radius: 5px;
+  text-align: center;
+}
+.main .content .product .description-block .buy-block .button-in-cart {
+  background-color: #9ac111;
+  color: white;
+}
+.main .content .product .description-block .buy-block .button-in-cart:hover {
+  background-color: #aad411;
+}
+.main .content .product .description-block .buy-block .button-in-cart:active {
+  background-color: #8daf10;
+}
+.main .content .product .description-block .buy-block .button-buy {
+  background-color: #cac7c7;
+  color: black;
+}
+.main .content .product .description-block .buy-block .button-buy:hover {
+  background-color: #dad8d8;
+}
+.main .content .product .description-block .buy-block .button-buy:active {
+  background-color: #b3afaf;
+}
+.footer {
+  margin-top: 40px;
+  height: 200px;
+  background-image: url("/images/bg2.jpg");
+  background-size: contain;
+  color: white;
+}
+.footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+.footer a {
+  color: white;
+}
+.footer a:hover {
+  color: #8a4646;
+}
+.footer .logo img {
+  height: 50px;
+  filter: invert(1);
+}
+.footer .footer-list li {
+  list-style-type: none;
+}
+.footer .link-fab {
+  font-size: 35px;
+}
+.footer input {
+  width: 100%;
+}
