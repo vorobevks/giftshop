@@ -42,7 +42,7 @@ a:hover {
 
     .full-background {
 
-        background-image: url("/images/bg1.jpg");
+        background-image: url("../../images/bg1.jpg");
         background-size: contain;
     }
 
@@ -91,28 +91,28 @@ a:hover {
 
                 .delivery-icon {
 
-                    background: url("/images/delivery.png");
+                    background: url("../../images/delivery.png");
                     background-size: cover;
 
                 }
 
                 .pay-icon {
 
-                    background: url("/images/card.png");
+                    background: url("../../images/card.png");
                     background-size: cover;
 
                 }
 
                 .contact-icon {
 
-                    background: url("/images/mail.png");
+                    background: url("../../images/mail.png");
                     background-size: cover;
 
                 }
 
                 .cart-icon {
 
-                    background: url("/images/basket.png");
+                    background: url("../../images/basket.png");
                     background-size: cover;
 
                 }
@@ -310,17 +310,17 @@ a:hover {
 
             .photo-product {
                 
-                width: 50%;
+                width: 45%;
 
                 .main-photo-product {
-                    width: @widthContent*@widthContainer*0.5;
-                    line-height: @widthContent*@widthContainer*0.5;
+                    width: @widthContent*@widthContainer*0.45;
+                    line-height: @widthContent*@widthContainer*0.45;
                     
                     text-align: center;
 
                     img {
-                        max-width: @widthContent*@widthContainer*0.5;
-                        max-height: @widthContent*@widthContainer*0.5;
+                        max-width: @widthContent*@widthContainer*0.45;
+                        max-height: @widthContent*@widthContainer*0.45;
                         vertical-align: middle;
                     }
                 }
@@ -338,12 +338,13 @@ a:hover {
                         
                     }
                     img{
-                        max-width: 100%;
-                        max-height: 100%;
+                        max-width: 99%;
+                        max-height: 99%;
                         vertical-align: middle;
                     }
                     .small-photo-item:hover{
                         outline: 1px solid #8c8c8c;
+                        z-index: 1;
                     }
                 }
 
@@ -351,8 +352,9 @@ a:hover {
             }
 
             .description-block {
-                
+                text-align: justify; 
                 width: 50%;
+                padding-left: 5px;
                 .price-and-delivery{
                     padding-top: 8px;
                     display: flex;
@@ -427,7 +429,7 @@ a:hover {
 .footer {
     margin-top: 40px;
     height: 200px;
-    background-image: url("/images/bg2.jpg");
+    background-image: url("../../images/bg2.jpg");
     background-size: contain;
     color: white;
 

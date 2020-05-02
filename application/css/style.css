@@ -30,7 +30,7 @@ a:hover {
   width: 160px;
 }
 .header .full-background {
-  background-image: url("/images/bg1.jpg");
+  background-image: url("../../images/bg1.jpg");
   background-size: contain;
 }
 .header .bottom-header {
@@ -71,19 +71,19 @@ a:hover {
   top: 1px;
 }
 .header .bottom-header .menu .menu-item .delivery-icon {
-  background: url("/images/delivery.png");
+  background: url("../../images/delivery.png");
   background-size: cover;
 }
 .header .bottom-header .menu .menu-item .pay-icon {
-  background: url("/images/card.png");
+  background: url("../../images/card.png");
   background-size: cover;
 }
 .header .bottom-header .menu .menu-item .contact-icon {
-  background: url("/images/mail.png");
+  background: url("../../images/mail.png");
   background-size: cover;
 }
 .header .bottom-header .menu .menu-item .cart-icon {
-  background: url("/images/basket.png");
+  background: url("../../images/basket.png");
   background-size: cover;
 }
 .header .bottom-header .menu .menu-item .info {
@@ -225,16 +225,16 @@ a:hover {
   padding: 20px 0;
 }
 .main .content .product .photo-product {
-  width: 50%;
+  width: 45%;
 }
 .main .content .product .photo-product .main-photo-product {
-  width: 380px;
-  line-height: 380px;
+  width: 342px;
+  line-height: 342px;
   text-align: center;
 }
 .main .content .product .photo-product .main-photo-product img {
-  max-width: 380px;
-  max-height: 380px;
+  max-width: 342px;
+  max-height: 342px;
   vertical-align: middle;
 }
 .main .content .product .photo-product .small-photo-block {
@@ -249,15 +249,18 @@ a:hover {
   text-align: center;
 }
 .main .content .product .photo-product .small-photo-block img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 99%;
+  max-height: 99%;
   vertical-align: middle;
 }
 .main .content .product .photo-product .small-photo-block .small-photo-item:hover {
   outline: 1px solid #8c8c8c;
+  z-index: 1;
 }
 .main .content .product .description-block {
+  text-align: justify;
   width: 50%;
+  padding-left: 5px;
 }
 .main .content .product .description-block .price-and-delivery {
   padding-top: 8px;
@@ -321,7 +324,7 @@ a:hover {
 .footer {
   margin-top: 40px;
   height: 200px;
-  background-image: url("/images/bg2.jpg");
+  background-image: url("../../images/bg2.jpg");
   background-size: contain;
   color: white;
 }
