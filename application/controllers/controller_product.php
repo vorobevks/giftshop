@@ -9,12 +9,12 @@ class Controller_Product extends Controller
     function action_product_list(int $id_category)
     {
         $data =$this->model->get_product_list($id_category);
-        $this->view->generate('product_list_view.php','template_view.php',$data);
+        $this->view->generate('product_list_view.php','template_view.php',$data,$this->model->sidebar);
     }
     function action_product(int $id_product)
     {
         $data=$this->model->get_product($id_product);
-        $this->view->generate('product_view.php','template_view.php',$data);
+        $this->view->generate('product_view.php','template_view.php',$data, $this->model->sidebar);
     }
 
 }

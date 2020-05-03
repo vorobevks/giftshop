@@ -3,7 +3,7 @@
     {
         include 'application/views/'.$content_view;
     }
-    function generate ($content_view,$template_view, $data=null)
+    function generate ($content_view,$template_view, $data=null, $sidebar)
     {
         include 'application/views/'.$template_view;
     }

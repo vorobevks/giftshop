@@ -22,6 +22,25 @@
         </div>
     </div>
     <?php include "application/views/footer_view.php"?>
+    
+    
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Корзина</h3>
+                <button class="close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="telegram.php" method="POST">
+                    <input type="text" name="user_name">
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/application/js/main.js"></script>
+
 </body>
 
 </html>

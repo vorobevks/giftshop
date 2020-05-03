@@ -1,7 +1,11 @@
 <div class="header">
         <div class="top-header container">
             <div class="feedback">
-                <a href="" class="top-header-link">Обратный звонок</a>
+            <!--button class="button" id="card-button">
+                    <img src="img/shopping-cart.svg" alt="user" class="button-icon">
+                    <span class="button-text">Корзина</span>
+            </button-->
+                <a href="#" class="top-header-link button" id="card-button">Обратный звонок</a>
             </div>
             <div class="login-reg">
                 <a href="" class="top-header-link">Вход</a>
@@ -10,7 +14,7 @@
         </div>
         <div class="full-background">
             <div class="container bottom-header">
-                <a href="#" class="logo"><img src="/images/logo.png" alt="Logo"></a>
+                <a href="/" class="logo"><img src="/images/logo.png" alt="Logo"></a>
                 <ul class="menu">
                     <li class="menu-item">
                         <a href="#" class="menu-link">

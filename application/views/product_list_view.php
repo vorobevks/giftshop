@@ -1,6 +1,8 @@
+<h4><?=array_shift($data)?></h4>
 <div class="product-list">
 
     <?
+   
     //print_r($data);
     foreach ($data as $row)
     {
