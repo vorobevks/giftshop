@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/551de25dc1.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -40,7 +41,9 @@
     </div>
 
     <script src="/application/js/main.js"></script>
+    <script>
 
+</script>
 </body>
 
 </html>
