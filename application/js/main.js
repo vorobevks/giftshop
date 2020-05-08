@@ -16,9 +16,15 @@ $('.fa-chevron-up').hide();
 $('.button-hidden-ul').click(function(){
     var id_button = $(this).attr('data-id');
    // alert(id_button);
-    $('.hidden-ul[data-id="'+id_button+'"]').toggle(200);
+    $('.hidden-ul[data-id="'+id_button+'"]').toggle(500);
     $('.fa-chevron-up[data-id="'+id_button+'"]').toggle();
     $('.fa-chevron-down[data-id="'+id_button+'"]').toggle();
+});
+
+//переключение фоток в просмотре товара
+$('.small-photo-item').click(function(){
+    //alert($(this).children("img").attr("src"));
+    $('#main-photo').attr("src", $(this).children("img").attr("src"));
 });
 /*$('.left-sidebar-link').hover(
     function(){

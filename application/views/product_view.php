@@ -1,22 +1,36 @@
 <div class="content">
   <div class="category-path">
-    <a href="">Главная</a>&#8594
-    <a href="">Живые подарки</a>&#8594
-    <a href="">Елочные шары "Праздничный квартет" флорариумы</a>
+    <a href="/">Главная</a>&#8594
+    <?
+    foreach($data['cat_path'] as $row){
+    ?>
+    <a href="/product/product_list/<?=$row['id']?>"><?=$row['name']?></a>&#8594
+    <?} 
+    echo $data['name'];?>
+    
   </div>
   <div class="product">
     <div class="photo-product">
       <div class="main-photo-product">
-        <img src="<?=$data['image'];?>" alt="">
+        <img id="main-photo" src="<?=$data['image'];?>" alt="">
       </div>
       <div class="small-photo-block">
+        <div class="small-photo-item">
+          <img src="<?=$data['image']?>" alt="">
+        </div>
+        
         <?
-          foreach ($data['images'] as $small_photo){
+          /*echo "<pre>";
+          print_r($data);
+          echo "</pre>";*/
+          if ($data['images']){
+            foreach ($data['images'] as $small_photo){
+           
         ?>
         <div class="small-photo-item">
           <img src="<?=$small_photo?>" alt="">
         </div>
-        <?}?>
+        <?}}?>
 
       </div>
     </div>
@@ -46,75 +60,23 @@
   <span class="text">Советуем посмотреть:</span><br><br>
   <!--советуем посмотреть-->
   <div class="product-list product-list-recommendation">
+  <?
+  foreach($data['recommendation'] as $row){
+  ?>
     <div class="product-item">
-      <a href="product.html" class="product-link">
+      <a href="<?='/product/product/'.$row['id']?>" class="product-link">
         <div class="image-block">
-          <img src="https://cdn.oboi7.com/99f1da545c810446ee53c05d46e695a02a0d6dda/pejzazhi-priroda-hdr-fotografii.jpg"
+          <img src="<?=$row['image']?>"
             alt="" class="product-image">
         </div>
         <span class="product-name">
-          Lorem ipsum dolor sit amet consectetur.
+          <?=$row['name']?>
         </span>
         <span class="product-price">
-          Цена: 500 рублей
+          Цена: <?=$row['price']?> рублей
         </span>
       </a>
     </div>
-    <div class="product-item">
-      <a href="product.html" class="product-link">
-        <div class="image-block">
-          <img src="https://cdn.oboi7.com/99f1da545c810446ee53c05d46e695a02a0d6dda/pejzazhi-priroda-hdr-fotografii.jpg"
-            alt="" class="product-image">
-        </div>
-        <span class="product-name">
-          Lorem ipsum dolor sit amet consectetur.
-        </span>
-        <span class="product-price">
-          Цена: 500 рублей
-        </span>
-      </a>
-    </div>
-    <div class="product-item">
-      <a href="product.html" class="product-link">
-        <div class="image-block">
-          <img src="https://cdn.oboi7.com/99f1da545c810446ee53c05d46e695a02a0d6dda/pejzazhi-priroda-hdr-fotografii.jpg"
-            alt="" class="product-image">
-        </div>
-        <span class="product-name">
-          Lorem ipsum dolor sit amet consectetur.
-        </span>
-        <span class="product-price">
-          Цена: 500 рублей
-        </span>
-      </a>
-    </div>
-    <div class="product-item">
-      <a href="product.html" class="product-link">
-        <div class="image-block">
-          <img src="https://cdn.oboi7.com/99f1da545c810446ee53c05d46e695a02a0d6dda/pejzazhi-priroda-hdr-fotografii.jpg"
-            alt="" class="product-image">
-        </div>
-        <span class="product-name">
-          Lorem ipsum dolor sit amet consectetur.
-        </span>
-        <span class="product-price">
-          Цена: 500 рублей
-        </span>
-      </a>
-    </div>
-    <div class="product-item">
-      <a href="product.html" class="product-link">
-        <div class="image-block">
-          <img src="https://cdn.oboi7.com/99f1da545c810446ee53c05d46e695a02a0d6dda/pejzazhi-priroda-hdr-fotografii.jpg"
-            alt="" class="product-image">
-        </div>
-        <span class="product-name">
-          Lorem ipsum dolor sit amet consectetur.
-        </span>
-        <span class="product-price">
-          Цена: 500 рублей
-        </span>
-      </a>
-    </div>
+  <?}?>    
   </div>
 </div>
