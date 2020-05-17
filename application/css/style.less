@@ -286,23 +286,75 @@ a:hover {
             .product-price {
                 display: block;
             }
-
-            .list_pagination {
-                display: flex;
-
-                .item_pagination {
-                    list-style-type: none;
-                    width: 50px;
-                    border: 1px dotted black;
-                    text-align: center;
-                }
-            }
-
-            .link_pagination {
-                display: block;
-            }
-
+            
         }
+        .pagination{
+            padding-top: 30px;
+            display: flex;
+        }
+        .list_pagination {
+        
+            display: flex;
+            margin: 0 auto;        
+
+            .item_pagination {
+                list-style-type: none;
+                width: 50px;
+                height: 50px;
+                border: 1px solid rgb(104, 102, 102);
+                text-align: center;
+                border-radius: 3px;
+                
+            }
+            .item_pagination_icon{
+                list-style-type: none;
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                vertical-align: middle;
+                .fas{  
+                    line-height: 50px;
+                    font-size: 30px;
+                }
+                a{
+                    color: black;
+                    display: block;
+                }
+                a:hover{
+                    color:red;
+                }
+                .disabled{
+                    pointer-events: none; /* делаем ссылку некликабельной */
+                    cursor: default;  /* устанавливаем курсор в виде стрелки */
+                    color: #999; /* цвет текста для нективной ссылки */
+                }
+                              
+            }
+           
+            .item_pagination:hover{
+                background-color: rgb(228, 222, 222);
+            }
+            .active{
+                background-color: rgb(151, 146, 146);
+            }
+            .empty{
+                width: 30px;
+                border: none;
+            }
+            .empty:hover{
+                background-color: #fff;
+
+            }
+                
+        }
+
+        .link_pagination {
+            display: block;
+            vertical-align: middle;
+            line-height: 50px;
+        }
+        
+
         .product-list-recommendation{
             display: flex;
             justify-content: flex-start;

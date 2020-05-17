@@ -19,7 +19,7 @@ class Model_Product extends Model
         
         //а здесь выведем товары из данной категории и ее дочерних категорий
         //$pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
-        
+        /*$this->get_list_for_page($id_cat);
         $query=$this->pdo->query("SELECT name FROM Category WHERE id=$id_cat");
         $name_category=$query->fetch(PDO::FETCH_ASSOC);
         
@@ -29,7 +29,29 @@ class Model_Product extends Model
         //$array_product['name_category']=$name_category['name'];
         array_unshift($array_product, $name_category['name']);
         //print_r($this->$array_product);
-        return $array_product; 
+        return $array_product; */
+        //получаем имя категории
+        $query=$this->pdo->query("SELECT id,name FROM Category WHERE id=$id_cat");
+        $data_category=$query->fetch();
+        $perpage=40;//сколько товаров отображать на странице
+        $query=$this->pdo->query("SELECT count(*) FROM products WHERE id_category IN (SELECT id FROM category WHERE id=$id_cat OR id_parent=$id_cat)");
+        $pages_count=ceil($query->fetchColumn()/$perpage);//количество страниц
+        //получаем номер страницы
+        if (empty($_GET['page']) || ($_GET['page'] <= 0)) {
+            $page = 1;
+            } else {
+                $page = $_GET['page']; 
+            }
+        if ($page > $pages_count) $page = $pages_count;
+        $start_pos = ($page - 1) * $perpage;
+        $query=$this->pdo->query("SELECT * FROM products WHERE id_category IN (SELECT id FROM category WHERE id=$id_cat OR id_parent=$id_cat) limit $start_pos,$perpage");
+        $array_product=$query->fetchall();
+        array_unshift($array_product, $page);//добавляем активную страницу в массив данных
+        array_unshift($array_product, $pages_count);//добавляем количество страниц в массив данных
+        array_unshift($array_product, $data_category['id']);//добавляем id категории в начало массива
+        array_unshift($array_product, $data_category['name']);//добавляем имя категории в начало массива
+        
+        return $array_product;
         
         
     }
@@ -97,5 +119,8 @@ class Model_Product extends Model
         }
         //return $result;
     }*/
+
+
+    
 }
 ?>

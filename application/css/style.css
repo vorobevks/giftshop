@@ -223,17 +223,65 @@ a:hover {
 .main .content .product-list .product-price {
   display: block;
 }
-.main .content .product-list .list_pagination {
+.main .content .pagination {
+  padding-top: 30px;
   display: flex;
 }
-.main .content .product-list .list_pagination .item_pagination {
+.main .content .list_pagination {
+  display: flex;
+  margin: 0 auto;
+}
+.main .content .list_pagination .item_pagination {
   list-style-type: none;
   width: 50px;
-  border: 1px dotted black;
+  height: 50px;
+  border: 1px solid #686666;
   text-align: center;
+  border-radius: 3px;
 }
-.main .content .product-list .link_pagination {
+.main .content .list_pagination .item_pagination_icon {
+  list-style-type: none;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+}
+.main .content .list_pagination .item_pagination_icon .fas {
+  line-height: 50px;
+  font-size: 30px;
+}
+.main .content .list_pagination .item_pagination_icon a {
+  color: black;
   display: block;
+}
+.main .content .list_pagination .item_pagination_icon a:hover {
+  color: red;
+}
+.main .content .list_pagination .item_pagination_icon .disabled {
+  pointer-events: none;
+  /* делаем ссылку некликабельной */
+  cursor: default;
+  /* устанавливаем курсор в виде стрелки */
+  color: #999;
+  /* цвет текста для нективной ссылки */
+}
+.main .content .list_pagination .item_pagination:hover {
+  background-color: #e4dede;
+}
+.main .content .list_pagination .active {
+  background-color: #979292;
+}
+.main .content .list_pagination .empty {
+  width: 30px;
+  border: none;
+}
+.main .content .list_pagination .empty:hover {
+  background-color: #fff;
+}
+.main .content .link_pagination {
+  display: block;
+  vertical-align: middle;
+  line-height: 50px;
 }
 .main .content .product-list-recommendation {
   display: flex;
