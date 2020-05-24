@@ -7,26 +7,29 @@ class Model_Logon extends Model
     function login($login,$password)
     {   
        
-        $pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
-		$result=$pdo->query("SELECT * from users where name='$login' and password=md5('$password')");
-        //$r=$result->fetch(PDO::FETCH_ASSOC);
-        if ($result->rowcount()) 
-        setcookie("user_name", $login, time()+60*24*30, "/");
+       // return "adasd";
+		$result=$this->pdo->query("SELECT * from users where name='$login' and password=md5('$password')");
+        
+        if ($result->rowcount()) {
+            setcookie("user_name", $login, time()+60*24*30, "/");
+            return true;
+        }
+        else return false;
 
     }  
     function registration($login,$email,$password)
     {
-        $pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
-		$result=$pdo->query("SELECT * from users where name='$login'");
+        //$pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
+		$result=$this->pdo->query("SELECT * from users where name='$login'");
         if ($result->rowcount()) 
-        $message="Пользователь с таким логином уже существует";
+        return false;
         else 
         {
-            $pdo->query("INSERT INTO users (name,email,password) values ('$login','$email',md5('$password'))");
+            $this->pdo->query("INSERT INTO users (name,email,password) values ('$login','$email',md5('$password'))");
             setcookie("user_name", $login, time()+60*24*30, "/");
-            $message=false;
+            return true;
         }
-        return $message;
+        
     }  
 }
 ?>

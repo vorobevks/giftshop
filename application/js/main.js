@@ -1,4 +1,88 @@
-const cardButton = document.querySelector("#card-button");
+//авторизация
+$('#logon_form').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        url: this.action,
+        type: this.method,
+        data: $(this).serialize(),
+        success: function(data) {
+            if (data=='false') alert('Неверный логин или пароль');
+            else location.reload();
+        }
+    });
+});
+//проверка на существование пользователя в бд
+$('#login').keyup(function(){
+    $.ajax({
+        url: "/application/isUser.php",
+        type: "POST",
+        data: {login:$(this).val()},
+        success: function(data){
+            
+            if(data=="false" && $('#login').val().length>4) {
+                $('#user_ok').removeClass("hidden");
+                $('#user_wrong').addClass("hidden");
+
+            }
+            else{
+                $('#user_ok').addClass("hidden");
+                $('#user_wrong').removeClass("hidden");
+            }
+        }
+    })
+})
+
+//регистрация
+$('#reg_form').submit(function(e){
+    
+    e.preventDefault();
+    if ($('#login').val().length>4 && $('#password').val().length>6 && $('#password').val()==$('#repassword').val()){
+    $.ajax({
+        url: this.action,
+        type: this.method,
+        data: $(this).serialize(),
+        success: function(data) {
+            if (data=='false') alert('Такой пользователь уже существует');
+            else location.reload();
+        }
+    });
+    }
+});
+
+//соответсвует ли пароль указанным требованиям
+$('#password').keyup(function(){
+    if ($(this).val().length>6) {
+        $('#password_ok').removeClass("hidden");
+        $('#password_wrong').addClass("hidden");
+    }
+    else{
+        $('#password_ok').addClass("hidden");
+        $('#password_wrong').removeClass("hidden");
+    }
+})
+//совпадают ли пароли
+$('#repassword').keyup(function(){
+    if($(this).val()==($('#password').val())){
+        $('#repassword_ok').removeClass("hidden");
+        $('#repassword_wrong').addClass("hidden");
+    }
+    else{
+        $('#repassword_ok').addClass("hidden");
+        $('#repassword_wrong').removeClass("hidden");
+    }
+})
+
+
+//модальные окна
+$('.button-modal').click(function(){
+    $(this).next().toggleClass("open");
+}); 
+$('.button-close').click(function(){
+    $(this).parent().parent().toggleClass("open");
+});
+
+
+/*const cardButton = document.querySelector("#card-button");
 const modal = document.querySelector(".modal");
 const close = document.querySelector(".close");
 
@@ -8,7 +92,7 @@ cardButton.addEventListener('click', function (event) {
 
 close.addEventListener("click", function (event) {
     modal.classList.remove("is-open");
-});
+});*/
 //скрываем все сложенные менюшки
 $('.hidden-ul').hide();
 $('.fa-chevron-up').hide();

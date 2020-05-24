@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,6 +12,7 @@
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/551de25dc1.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 </head>
 
 <body>
@@ -23,23 +24,6 @@
         </div>
     </div>
     <?php include "application/views/footer_view.php"?>
-    
-    
-    <div class="modal">
-        <div class="modal-dialog">
-            <div class="modal-header">
-                <h3 class="modal-title">Корзина</h3>
-                <button class="close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form action="telegram.php" method="POST">
-                    <input type="text" name="user_name">
-                    <input type="submit">
-                </form>
-            </div>
-        </div>
-    </div>
-
     <script src="/application/js/main.js"></script>
     <script>
 

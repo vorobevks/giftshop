@@ -19,19 +19,23 @@ class Controller_Logon extends Controller
         $login=$_POST['login'];
         $password=$_POST['password'];
         $email=$_POST['email'];
-        $error=$this->model->registration($login,$email,$password);
-        if ($error) $this->action_registration($error);
-        
-        else  header("location: /");
+        $result=$this->model->registration($login,$email,$password);
+        if ($result) echo "true";//$this->action_registration($error);
+        else  echo "false";
         //$this->view->generate('main_view.php', 'template_view.php');
     }
     function action_login()
-    {
+    {        
         $login=$_POST['login'];
         $password=$_POST['password'];
-        $this->model->login($login,$password);
+        $result=$this->model->login($login,$password);
+        if ($result) echo "true";
+        else echo "false";
+    }
+    function action_logout()
+    {
+        setcookie("user_name", $login, time()-60*24*30, "/");
         header("location: /");
-        //$this->view->generate('main_view.php', 'template_view.php');
     }
 }
 ?>

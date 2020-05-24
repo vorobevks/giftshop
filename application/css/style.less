@@ -7,7 +7,20 @@
     font-family: 'Baloo Bhaina', cursive;
     box-sizing: border-box;
 }
+.hidden{
+    visibility: hidden;
+}
 
+.icon_green{
+    color: green;
+}
+.icon_red{
+    color:red;
+}
+/*.hidden{
+    color: rgb(109, 233, 72);
+    display: none;
+}*/
 a {
     text-decoration: none;
     color: rgb(49, 48, 48);
@@ -24,18 +37,42 @@ a:hover {
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
     display: none;
-}
-.is-open {
-    display: flex;
+    
 }
 .modal-dialog {
     max-width: 780px;
-    width: 95%;
-    background: #fff;
-    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    border-radius: 15px;
     margin: auto;
     padding: 40px 45px;
+    position: relative;
 }
+.button-close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    top: 15px;
+    right: 15px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(194, 192, 192);
+    .fas{
+        line-height: 30px;
+        color: white;
+    }
+}
+.button-close:hover{
+    background-color: rgb(155, 151, 151);
+    cursor: pointer;
+}
+.open{
+    display: flex;
+    z-index: 1010;
+    
+}
+
+
 .container {
     width: @widthContainer;
     margin: 0 auto;
@@ -49,9 +86,9 @@ a:hover {
         align-items: center;
 
         .login-reg {
-            display: flex;
-            justify-content: space-between;
-            width: 150px;
+            //display: flex;
+            //justify-content: space-between;
+            //width: 150px;
         }
 
         .feedback {
@@ -250,7 +287,7 @@ a:hover {
             .product-item {
                 height: 250px;
                 width: 100%/@count;
-
+                line-height: 1.3;
             }
 
             .product-link:hover {
@@ -363,6 +400,8 @@ a:hover {
             .product-item {
                 height: 200px;
                 width: 100%/@count;
+                line-height: 1;
+                font-size: 14px;
 
             }
 
