@@ -1,78 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'Baloo Bhaina', cursive;
-  box-sizing: border-box;
-}
-.hidden {
-  visibility: hidden;
-}
-.icon_green {
-  color: green;
-}
-.icon_red {
-  color: red;
-}
-/*.hidden{
-    color: rgb(109, 233, 72);
-    display: none;
-}*/
-a {
-  text-decoration: none;
-  color: #313030;
-}
-a:hover {
-  color: #615858;
-}
-.modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  display: none;
-}
-.modal-dialog {
-  max-width: 780px;
-  background: #ffffff;
-  border-radius: 15px;
-  margin: auto;
-  padding: 40px 45px;
-  position: relative;
-}
-.button-close {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  top: 15px;
-  right: 15px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #c2c0c0;
-}
-.button-close .fas {
-  line-height: 30px;
-  color: white;
-}
-.button-close:hover {
-  background-color: #9b9797;
-  cursor: pointer;
-}
-.open {
-  display: flex;
-  z-index: 1010;
-}
-.container {
-  width: 1000px;
-  margin: 0 auto;
-}
 .header .top-header {
   height: 30px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  /*.login-reg {
+            //display: flex;
+            //justify-content: space-between;
+            //width: 150px;
+        }*/
 }
 .header .top-header .feedback {
   width: 160px;
@@ -138,6 +73,37 @@ a:hover {
   display: block;
   font-weight: 300;
 }
+.footer {
+  margin-top: 40px;
+  height: 200px;
+  background-image: url("../../images/bg2.jpg");
+  background-size: contain;
+  color: white;
+}
+.footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+.footer a {
+  color: white;
+}
+.footer a:hover {
+  color: #8a4646;
+}
+.footer .logo img {
+  height: 50px;
+  filter: invert(1);
+}
+.footer .footer-list li {
+  list-style-type: none;
+}
+.footer .link-fab {
+  font-size: 35px;
+}
+.footer input {
+  width: 100%;
+}
 .main {
   display: flex;
   justify-content: space-between;
@@ -195,6 +161,10 @@ a:hover {
 }
 .main .content {
   width: 760px;
+}
+.main .content .header_cart {
+  display: flex;
+  justify-content: space-between;
 }
 .main .content .text {
   font-size: 20px;
@@ -309,7 +279,6 @@ a:hover {
 }
 .main .content .link_pagination {
   display: block;
-  vertical-align: middle;
   line-height: 50px;
 }
 .main .content .product-list-recommendation {
@@ -456,34 +425,80 @@ a:hover {
 .main .content .product .description-block .buy-block .button-buy:active {
   background-color: #b3afaf;
 }
-.footer {
-  margin-top: 40px;
-  height: 200px;
-  background-image: url("../../images/bg2.jpg");
-  background-size: contain;
-  color: white;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Baloo Bhaina', cursive;
+  box-sizing: border-box;
 }
-.footer .footer-content {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 50px;
+.hidden {
+  visibility: hidden;
 }
-.footer a {
-  color: white;
+.icon_green {
+  color: green;
 }
-.footer a:hover {
-  color: #8a4646;
+.icon_red {
+  color: red;
 }
-.footer .logo img {
-  height: 50px;
-  filter: invert(1);
+/*.hidden{
+    color: rgb(109, 233, 72);
+    display: none;
+}*/
+a {
+  text-decoration: none;
+  color: #313030;
 }
-.footer .footer-list li {
-  list-style-type: none;
+a:hover {
+  color: #615858;
 }
-.footer .link-fab {
-  font-size: 35px;
-}
-.footer input {
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+.modal-dialog {
+  max-width: 780px;
+  background: #ffffff;
+  border-radius: 15px;
+  margin: auto;
+  padding: 40px 45px;
+  position: relative;
+}
+.button-close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  top: 15px;
+  right: 15px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #c2c0c0;
+}
+.button-close .fas {
+  line-height: 30px;
+  color: white;
+}
+.button-close:hover {
+  background-color: #9b9797;
+  cursor: pointer;
+}
+.open {
+  display: flex;
+  z-index: 1010;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+#btn_incart.disabled {
+  pointer-events: none;
+  /* делаем ссылку некликабельной */
+  cursor: default;
+  /* устанавливаем курсор в виде стрелки */
+  background-color: #97950e;
 }

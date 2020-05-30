@@ -6,7 +6,7 @@ class model {
     public function __construct()
     {
         $this->pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
-        //$q=$this->pdo->query('SELECT * FROM Category where id_parent is null');
+        //помещаем левый сайдбар
         $q=$this->pdo->query('SELECT * FROM Category');
         $result=$q->fetchall(PDO::FETCH_ASSOC);
         $temp=array();
@@ -30,12 +30,6 @@ class model {
         $this->sidebar=$temp;
         //print_r($this->$sidebar);
     }
-    public function set_sidebar(){
-       
-    }
-    public function get_data()
-    {
-
-    }
+    
 }
 ?>

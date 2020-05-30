@@ -93,6 +93,7 @@ class Model_Product extends Model
 
 
     }
+    
     //рекурсивная функция для поиска всех товаров из выбранной категории, в том числе и вложенных
     /*function recursion(int $id_cat)
     {

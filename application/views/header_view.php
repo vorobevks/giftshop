@@ -84,8 +84,8 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <span class="icon cart-icon"></span>КОРЗИНА<span class="info">В корзине 0 товаров</span>
+                    <a href="/cart" class="menu-link">
+                        <span class="icon cart-icon"></span>КОРЗИНА<span class="info">В корзине <span id="count_in_cart">&nbsp;&nbsp;</span> товаров</span>
                     </a>
                 </li>
             </ul>

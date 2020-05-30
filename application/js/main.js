@@ -1,3 +1,26 @@
+$(document).ready(function() {
+    if ($.cookie("user_name")){
+    $.ajax({
+        url:"/cart/count",
+        type:"POST",
+        success: function(data){
+            $('#count_in_cart').html(data);
+        }
+    });
+    var id_product = $('#id_product').val();
+    $.ajax({
+        url:"/cart/isincart/"+id_product,
+        type:"post",
+        success: function(data){
+            if (data!='0') {
+                $('#btn_incart').html("Товар в корзине"); 
+                $('#btn_incart').addClass("disabled");
+            }
+        }
+    })
+}
+}); 
+
 //авторизация
 $('#logon_form').submit(function(e){
     e.preventDefault();
@@ -18,7 +41,6 @@ $('#login').keyup(function(){
         type: "POST",
         data: {login:$(this).val()},
         success: function(data){
-            
             if(data=="false" && $('#login').val().length>4) {
                 $('#user_ok').removeClass("hidden");
                 $('#user_wrong').addClass("hidden");
@@ -110,6 +132,27 @@ $('.small-photo-item').click(function(){
     //alert($(this).children("img").attr("src"));
     $('#main-photo').attr("src", $(this).children("img").attr("src"));
 });
+
+
+//добавление товара в корзину
+$('#btn_incart').click(function(e){
+    e.preventDefault();
+    if ($.cookie("user_name")) {
+    var id_product = $('#id_product').val();
+    $.ajax({
+        url:"/cart/add/"+id_product,
+        type:"post",
+        success: function(data) {
+           $('#count_in_cart').html(data);
+           $('#btn_incart').html("Товар в корзине");
+           $('#btn_incart').addClass("disabled");
+        }
+    });
+    }
+    else alert ("Для добавления товаров в корзину Вам необходимо авторизоваться. \n\nТак же Вы можете воспользоваться покупкой в 1 клик.");
+});
+
+
 /*$('.left-sidebar-link').hover(
     function(){
         $(this).siblings('.button-hidden-ul').addClass('bgc-for-button');

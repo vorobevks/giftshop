@@ -11,7 +11,10 @@ class Model_Logon extends Model
 		$result=$this->pdo->query("SELECT * from users where name='$login' and password=md5('$password')");
         
         if ($result->rowcount()) {
+            
             setcookie("user_name", $login, time()+60*24*30, "/");
+            setcookie("user_id", $result->fetch()['id'],time()+60*24*30,"/");
+            
             return true;
         }
         else return false;
@@ -25,8 +28,11 @@ class Model_Logon extends Model
         return false;
         else 
         {
-            $this->pdo->query("INSERT INTO users (name,email,password) values ('$login','$email',md5('$password'))");
+            $new_user=$this->pdo->query("INSERT INTO users (name,email,password) values ('$login','$email',md5('$password'))");
+            //print_r ($this->pdo->lastInsertId());
             setcookie("user_name", $login, time()+60*24*30, "/");
+
+            setcookie("user_id", $this->pdo->lastInsertId(),time()+60*24*30, "/");
             return true;
         }
         

@@ -10,10 +10,10 @@ class Controller_Logon extends Controller
     {
         $this->view->generate_empty('logon_view.php');
     }
-    function action_registration($err=null)
+    /*function action_registration($err=null)
     {
         $this->view->generate_empty('registration_view.php',$err);
-    }
+    }*/
     function action_reg()
     {
         $login=$_POST['login'];
@@ -35,6 +35,7 @@ class Controller_Logon extends Controller
     function action_logout()
     {
         setcookie("user_name", $login, time()-60*24*30, "/");
+        setcookie("user_id", $login, time()-60*24*30, "/");
         header("location: /");
     }
 }

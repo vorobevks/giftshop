@@ -13,12 +13,18 @@
     <script src="https://kit.fontawesome.com/551de25dc1.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 
 <body>
     <?php include "application/views/header_view.php";?>
     <div class="main container">
-        <?php include "application/views/sidebar_view.php";?>
+        <?php 
+        $url = $_SERVER['REQUEST_URI'];
+        $url = explode('?', $url);
+        $url = $url[0];
+        if ($url!="/cart") include "application/views/sidebar_view.php";
+        ?>
         <div class="content">
             <?php include 'application/views/'.$content_view;?>
         </div>

@@ -48,9 +48,10 @@
         </div>
       </div>
       <div class="buy-block">
-        <a href="" class="button button-in-cart">В корзину</a>
+        <a href="#" id="btn_incart" class="button button-in-cart">В корзину</a>
+        <input type="hidden" id="id_product" value="<?=$data['id']?>">
         <div class="">или</div>
-        <a href="" class="button button-buy">Купить в 1 клик</a>
+        <a href="#" class="button button-buy">Купить в 1 клик</a>
       </div>
       <div class="description">
         <?=$data['description']?>
