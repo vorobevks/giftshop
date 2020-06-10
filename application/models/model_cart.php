@@ -21,5 +21,9 @@ class Model_Cart extends Model{
         $result=$query->fetchall();
         return $result;
     }
+    //удаляем товр из корзины
+    function del_product(int $id_product, $id_user){
+        $this->pdo->query("delete from cart where id_user=$id_user and id_product=$id_product");
+    }
     
 }?>

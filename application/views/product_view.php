@@ -1,4 +1,3 @@
-<div class="content">
   <div class="category-path">
     <a href="/">Главная</a>&#8594
     <?
@@ -80,4 +79,3 @@
     </div>
   <?}?>   
   </div>
-</div>

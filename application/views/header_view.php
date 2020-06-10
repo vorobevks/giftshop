@@ -36,7 +36,7 @@
                         <h3 class="modal-title">Авторизация</h3>
                         <input type="text" name ="login" placeholder='Ваш логин'><br>
                         <input type="password" name= "password" placeholder='Ваш пароль'><br>
-                        <input type="submit">
+                        <input type="submit" class= "submit_button" value="Войти">
                     </form>
                     
                 </div>
@@ -52,15 +52,16 @@
                         <input type="email" name="email" placeholder='Ваш e-mail (необязательно)'><br>
                         <input type="password" minlength="6" name="password" id="password" placeholder='Ваш пароль'><i id="password_ok" class="hidden icon_green fas fa-check-circle"></i><i id="password_wrong" class="hidden icon_red fas fa-times-circle" title="Пароль должен содержать минимум 6 символов&#10итд."></i><br>
                         <input type="password" minlength="6" name= "repassword" id="repassword" placeholder='Подтверждение пароля'><i id="repassword_ok" class="hidden icon_green fas fa-check-circle"></i><i id="repassword_wrong" class="hidden icon_red fas fa-times-circle" title="Введенные пароли не совпадают"></i><br>
-                        <input type="submit" id="submit_reg">
+                        <input type="submit" class= "submit_button" id="submit_reg" value="Зарегистироваться">
                     </form>
                 </div>
             </div>
             <?}
             else{             
             ?>
-            <a href="#" class="top-header-link button-modal" id="button-login">Личный кабинет |</a>
-            <a href="/logon/logout" class="top-header-link button-modal" id="button-registration">Выход</a>
+            <a href="#" class="top-header-link" id="button-login">Личный кабинет |</a>
+            
+            <a href="/logon/logout" class="top-header-link" id="button-registration">Выход</a>
             <?}?>
         </div>
     </div>

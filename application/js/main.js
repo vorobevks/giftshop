@@ -1,5 +1,4 @@
-$(document).ready(function() {
-    if ($.cookie("user_name")){
+function get_count_cart(){
     $.ajax({
         url:"/cart/count",
         type:"POST",
@@ -7,6 +6,16 @@ $(document).ready(function() {
             $('#count_in_cart').html(data);
         }
     });
+}
+$(document).ready(function() {
+    
+    if (location.pathname=="/cart") $('#content').css('width','100%');
+
+    if ($.cookie("user_name")){
+        //проверяем количество товаров в корзине
+        get_count_cart();
+    
+    //проверяем, лежит ли данный товар в корзине или нет, для того чтоб сделать кнопку неактивной
     var id_product = $('#id_product').val();
     $.ajax({
         url:"/cart/isincart/"+id_product,
@@ -19,6 +28,23 @@ $(document).ready(function() {
         }
     })
 }
+var swiper = new Swiper('.swiper-container', {
+    loop: true,
+    speed: 1000,
+    
+    centeredSlides: false,
+    effect: 'coverflow',
+    autoplay: {
+        delay: 5000,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + '</span>';
+      },
+    },
+  });
 }); 
 
 //авторизация
@@ -103,7 +129,51 @@ $('.button-close').click(function(){
     $(this).parent().parent().toggleClass("open");
 });
 
-
+//удаляем товар из корзины
+$('.button-del').click(function(){
+    //alert ($(this).attr('id'));
+    var id_product = $(this).attr('id');
+    $.ajax({
+        url:"/cart/delete/"+id_product,
+        type: "POST",
+        success: function(){
+            get_count_cart();
+        }
+    });
+    $(this).closest('.productincart').remove();
+    var this_cost=$(this).parent().siblings('.cost').data('cost');
+    console.log(this_cost);
+    var result_cost=$('.final_cost').data('cost');
+    console.log(result_cost);
+    $('.final_cost').data('cost', result_cost-this_cost);
+    $('.final_cost').text(result_cost-this_cost);
+    
+})
+//увеличиваем количество товара на 1
+$('.count_more').click(function(){
+    var count = parseInt($(this).siblings('.count_value').val())
+    //alert(count+1)
+    var price=$(this).parent().siblings('.price').data('price');
+    var result_cost=$('.final_cost').data('cost');
+    //alert($(this).parent().siblings('.price').data('price'));
+    $(this).siblings('.count_value').val(count+1);
+    $(this).parent().siblings('.cost').text(price*(count+1));
+    $('.final_cost').data('cost', result_cost+price);
+    $('.final_cost').text(result_cost+price);
+})
+//уменьшаем количество товара на 1
+$('.count_less').click(function(){
+    var count = parseInt($(this).siblings('.count_value').val())
+    var price=$(this).parent().siblings('.price').data('price')
+    var result_cost=$('.final_cost').data('cost');
+    //alert(count+1)
+    if (count>1){
+    $(this).siblings('.count_value').val(count-1);
+    $(this).parent().siblings('.cost').text(price*(count-1));
+    $('.final_cost').data('cost', result_cost-price);
+    $('.final_cost').text(result_cost-price);
+    }
+})
 /*const cardButton = document.querySelector("#card-button");
 const modal = document.querySelector(".modal");
 const close = document.querySelector(".close");

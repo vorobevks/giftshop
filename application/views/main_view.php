@@ -1,8 +1,19 @@
-<div class="slider"></div>
+<div class="swiper-container slider">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide"><a href="/product/product_list/2"><img src="/images/slider33.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="/product/product_list/1"><img src="/images/slider44.jpg" alt=""></a></div>
+        <div class="swiper-slide"><a href="/product/product_list/28"><img src="/images/slider55.jpg" alt=""></a></div>
+    </div>
+    <div class="swiper-pagination"></div>
+    
+</div>
+
 <div class="search-group">
     <form action="" class="search">
         <input type="text" placeholder="Поиск по товарам..." class="search-text">
-        <input type="submit" value="Найти" class="search-button">
+        <input type="submit" value="Найти" class="search-button submit_button">
     </form>
 </div>
 <h2>Рекомендуемые товары</h2>
