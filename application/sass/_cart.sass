@@ -1,8 +1,13 @@
 .list_cart
     width: 100%
+    a
+        display: inline-block
+        width: 100%
 .column_incart img
     max-width: 200px
     max-height: 200px
+    width: 8rem
+    height: 8rem
     
 .image
     vertical-align: middle
@@ -26,18 +31,26 @@ table
     background: white
     border-collapse: collapse
     text-align: center
+    border-spacing: 8px 8px
+    //line-height: 5
 th 
     font-weight: normal
     color: #039
     border-bottom: 2px solid #6678b1
     padding: 10px 8px
-
+    //outline: 1px solid black
+tr
+    
 td 
     color: #669
     padding: 9px 8px
     transition: .3s linear
     border-bottom: 1px solid #ccc
-    width: 17%
+    min-width: 5rem
+    //outline: 1px solid black
+    .fas
+        vertical-align: middle
+        cursor: pointer
     
 .count_value
     width: 30px
@@ -57,6 +70,11 @@ td
     background-color: #9ac111
     color: white
     font-size: 16px
-    height: 100%
+    height: 3rem
     width: 100%
     border-radius: 5px
+    display: flex
+    align-items: center
+    justify-content: space-evenly
+.count_block
+    display: flex

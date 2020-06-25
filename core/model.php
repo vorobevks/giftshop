@@ -5,10 +5,10 @@ class model {
     
     public function __construct()
     {
-        $this->pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
+        $this->pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME.";charset=UTF8", USER, PASSWORD);
         //помещаем левый сайдбар
-        $q=$this->pdo->query('SELECT * FROM Category');
-        $result=$q->fetchall(PDO::FETCH_ASSOC);
+        $q=$this->pdo->query("SELECT * FROM category where disabled= 0");
+        $result=$q->fetchAll(PDO::FETCH_ASSOC);
         $temp=array();
         $i=0;
         foreach($result as $row)
@@ -23,12 +23,7 @@ class model {
                 //array_push($temp[$row['id_parent']],$row);
             }
         }
-
-        //echo "<pre>";
-        //print_r($temp);
-        //echo "</pre>";
         $this->sidebar=$temp;
-        //print_r($this->$sidebar);
     }
     
 }

@@ -4,13 +4,29 @@ $widthContainer: 1000px
 @import "_footer"
 @import "_container"
 @import "_cart"
-@import "_slider"
+@import "_slider" 
+@import "_menu"   
 * 
     margin: 0
     padding: 0
-    font-family: 'Baloo Bhaina', cursive
+    //font-family: 'Baloo Bhaina', cursive
+    //font-family: 'Roboto', sans-serif
+    font-family: 'Istok Web', sans-serif
     box-sizing: border-box
     outline: none
+    //font-size: 16px
+
+html, body
+    height: 100%
+body
+    display: flex
+    flex-direction: column
+body.lock
+    overflow: hidden
+.main
+    flex: 1 0 auto
+.footer
+    flex: 0 0 auto
 input
 	//width: 300px
 	font-size: 13px
@@ -69,7 +85,8 @@ a:hover
     margin: auto
     padding: 40px 45px
     position: relative
-
+.modal-registration
+    padding: 40px 20px 40px 45px
 .button-close
     position: absolute
     width: 30px
@@ -93,7 +110,8 @@ a:hover
     display: flex
     z-index: 1010
 .container 
-    width: $widthContainer
+    width: 90%
+    max-width: 1000px
     margin: 0 auto
 
 #btn_incart.disabled
@@ -101,3 +119,4 @@ a:hover
     cursor: default  /* устанавливаем курсор в виде стрелки */
     background-color: rgb(151, 149, 14)
 
+@import "_media"

@@ -1,4 +1,4 @@
-<div class="swiper-container slider">
+<div class="swiper-container slider-top">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
         <!-- Slides -->
@@ -30,9 +30,11 @@
             <span class="product-name">
                 <?=$row['name']?>
             </span>
+             
             <span class="product-price">
-                <?=$row['price']?>
+            Цена: <?=$row['price']?> &#8381;
             </span>
+            
         </a>
     </div>   
     <?

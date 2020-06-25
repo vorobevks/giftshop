@@ -58,12 +58,36 @@
     </div>
   </div>
   <span class="text">Советуем посмотреть:</span><br><br>
-  <!--советуем посмотреть-->
+  <!--советуем посмотреть->
   <div class="product-list product-list-recommendation">
   <?
-  foreach($data['recommendation'] as $row){
+  //foreach($data['recommendation'] as $row){
   ?>
     <div class="product-item">
+      <a href="<?//='/product/product/'.$row['id']?>" class="product-link">
+        <div class="image-block">
+          <img src="<?//=$row['image']?>"
+            alt="" class="product-image">
+        </div>
+        <span class="product-name">
+          <?//=$row['name']?>
+        </span>
+        <span class="product-price">
+          Цена: <?//=$row['price']?> рублей
+        </span>
+      </a>
+    </div>
+  <?//}?>   
+  </div-->
+  <div class="product-list product-list-recommendation">
+  <div class="swiper-container slider-recommenation">
+    <div class="swiper-wrapper">
+    <? $i=0;
+      foreach($data['recommendation'] as $row){
+        $i++;
+    ?>
+    <div class="swiper-slide">
+        
       <a href="<?='/product/product/'.$row['id']?>" class="product-link">
         <div class="image-block">
           <img src="<?=$row['image']?>"
@@ -77,5 +101,9 @@
         </span>
       </a>
     </div>
-  <?}?>   
+    <?}?> 
+    </div>
+    <!-- Add Pagination -->
+    
+  </div>
   </div>

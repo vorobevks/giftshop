@@ -18,23 +18,23 @@ foreach ($data as $row) {
     $result_cost+=$row['price'];
 ?>
     <tr class="productincart" data-id=<?=$row['id']?>>
-        <td class="column_incart"><img src="<?=$row['image']?>" alt=""></td>
+        <td class="column_incart"><a href="/product/product/<?=$row['id']?>"><img src="<?=$row['image']?>" alt=""></a></td>
         <td><a href="/product/product/<?=$row['id']?>"><?=$row['name']?></a></td>
-        <td class="column_incart price" data-price="<?=$row['price']?>"><?=$row['price']?></td>
-        <td class="column_incart">
+        <td class="column_incart price" data-price="<?=$row['price']?>"><?=$row['price']?> &#8381;</td>
+        <td class="column_incart tdblock">
         <div class="count_less count_button"><i class="fas fa-caret-left"></i></div>
         <input type="text" class="count_value" value=1 disabled>
         <div class="count_more count_button"><i class="fas fa-caret-right"></i></div>
         </td>
-        <td class="column_incart cost" data-cost="<?=$row['price']?>"><?=$row['price']?></td>
-        <td class="column_incart"> <div class="button-del" title="Удалить из корзины" id="<?=$row['id']?>"><i class="fas fa-times"></i></div></td>
+        <td class="column_incart cost tdblock" data-cost="<?=$row['price']?>"><?=$row['price']?> &#8381;</td>
+        <td class="column_incart tdblock"> <div class="button-del" title="Удалить из корзины" id="<?=$row['id']?>"><i class="fas fa-trash"></i></div></td>
     </tr>
 <?}?>
     <tr class="result">
         <td colspan="4" >Общая стоимость заказа</td>
-        <td class="final_cost" data-cost="<?=$result_cost?>"><?=$result_cost?></td>
+        <td class="final_cost" data-cost="<?=$result_cost?>"><?=$result_cost?> &#8381;</td>
         <td class="submit">
-            <div class="buy_cart button-modal button">Оформить<br>заказ</div>
+            <div class="buy_cart button-modal button">Оформить заказ</div>
             <div class="modal">
                 <div class="modal-buy modal-dialog">
                     <div class="button-close"><i class="fas fa-times"></i></div>

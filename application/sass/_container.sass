@@ -1,11 +1,13 @@
-@widthContainer: 1000px
+//$widthContainer: 1000px
 .main 
     display: flex
     justify-content: space-between
     padding-top: 20px
 
     .left-sidebar 
-        width: 22%
+        width: 230px
+        min-width: 230px
+
 
         ///*ul 
         //    list-style-type: none
@@ -30,7 +32,7 @@
             
             .fas
                 color: #8c8c8c
-                vertical-align: middle
+                vertical-align: bottom
 
             
             .button-hidden-ul:hover
@@ -45,7 +47,8 @@
             display: block
             width: 100%   
             height: 100%
-            padding-left: 5px         
+            padding-left: 5px  
+            line-height: 30px       
         
         .submenu
             width: 100%
@@ -96,13 +99,13 @@
 
         .product-list 
             display: flex
-            justify-content: flex-start
+            justify-content: space-around
             flex-wrap: wrap
-            $count: 4
+            //$count: 4
 
             .product-item 
                 height: 250px
-                width: 100%/$count
+                width: 170px
                 line-height: 1.3
             
 
@@ -132,8 +135,6 @@
                 max-height: 170px
                 line-height: 180px
                 vertical-align: middle
-            
-
             .product-name,
             .product-price 
                 display: block
@@ -208,6 +209,9 @@
         
 
         .product-list-recommendation
+            //height: 300px
+            font-size: 20px !important
+            line-height: 1.2rem
             display: flex
             justify-content: flex-start
             flex-wrap: wrap
@@ -227,16 +231,23 @@
             
 
             .product-link 
-                display: block
+                display: flex
+                flex-direction: column
+                align-items: center
                 width: 100%
                 height: 100%
                 color: #432966
+
             
 
-            .image-block 
-
-                line-height: 130px
+            .image-block
+                height: 130px
+                width: 130px
+                display: flex
+                align-items: center
+                //line-height: 130px
                 text-align: center
+                justify-content: space-around
 
             
 
@@ -245,13 +256,13 @@
                 margin: 0 auto
                 max-width: 96%
                 max-height: 120px
-                line-height: 130px
                 vertical-align: middle
             
 
             .product-name,
             .product-price 
                 display: block
+                font-size: 13px
             
 
         
@@ -269,20 +280,24 @@
             display: flex
             padding: 20px 0
             justify-content: space-between
-
+            $w: 20rem
             .photo-product 
                 
-                width: 45%
-
+                width: $w
+                min-width: $w
                 .main-photo-product 
-                    width: $widthContent*$widthContainer*0.45
-                    line-height: $widthContent*$widthContainer*0.45
-                    
+                    width: $w
+                    //line-height: $w
+                    height: $w
                     text-align: center
+                    margin-bottom: 1rem
+                    display: flex
+                    align-items: center
+                    justify-content: space-around
 
                     img 
-                        max-width: $widthContent*$widthContainer*0.45
-                        max-height: $widthContent*$widthContainer*0.45
+                        max-width: $w
+                        max-height: $w
                         vertical-align: middle
                     
                 
@@ -295,8 +310,11 @@
                     .small-photo-item
                         width: 100%/$count-small-photo
                         height: 126px
-                        line-height: 126px
+                        //line-height: 126px
                         text-align: center
+                        display: flex
+                        align-items: center
+                        justify-content: space-around
                         
                     
                     img
@@ -315,8 +333,10 @@
 
             .description-block 
                 text-align: justify 
-                width: 50%
+                width: 60%
                 padding-left: 5px
+                h3
+                    text-align: start
                 .price-and-delivery
                     padding-top: 8px
                     display: flex

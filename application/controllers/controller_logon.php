@@ -34,8 +34,8 @@ class Controller_Logon extends Controller
     }
     function action_logout()
     {
-        setcookie("user_name", $login, time()-60*24*30, "/");
-        setcookie("user_id", $login, time()-60*24*30, "/");
+        setcookie("user_name", "", time()-60*24*30, "/");
+        setcookie("user_id", "", time()-60*24*30, "/");
         header("location: /");
     }
 }

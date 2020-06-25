@@ -1,6 +1,6 @@
 <div class="left-sidebar">
-            <div>
-                <div class="left-sidebar-item">Каталог товаров</div>
+        <div class="left-sidebar-item button_catalog">Каталог товаров</div>
+            <div id="sidebar">
                 <?
                 $i=0;
                 foreach($sidebar as $row)
@@ -9,7 +9,7 @@
                 <div class="left-sidebar-item">
                     <a href="/product/product_list/<?=$row['id']?>" class="left-sidebar-link" data-id="plus<?=$i?>"><?=$row['name']?></a>
                     <?
-                    if (count($row)>4){
+                    if (count($row)>5){
                     ?>
                     <span class="button-hidden-ul" data-id="plus<?=$i?>">
                         <i class="fas fa-chevron-down" data-id="plus<?=$i?>"></i>

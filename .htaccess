@@ -1,4 +1,4 @@
-﻿RewriteEngine on
+RewriteEngine on
 
 # не позволять httpd отдавать файлы, начинающиеся с точки (.htaccess, .svn, .git и прочие)
 RedirectMatch 403 /\..*$

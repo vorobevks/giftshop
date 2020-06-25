@@ -28,10 +28,11 @@
         display: flex
         align-items: center
         justify-content: space-between
-
+        .logo
+            display: flex
         .logo img 
 
-            height: 50px
+            height: 90px
         
 
         .menu 
@@ -88,7 +89,6 @@
                 
 
                 .cart-icon 
-
                     background: url("../../images/basket.png")
                     background-size: cover
 
@@ -97,9 +97,46 @@
                 .info 
                     display: block
                     font-weight: 300
-                
-            
 
+.menu-item:last-child
+    position: relative
+#count_in_cart
+    position: absolute
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background-color: #9ac111
+    top: 0
+    right: 0
+    display: none
+    align-items: center
+    justify-content: space-around
+.header_burger
+    width: 30px
+    height: 20px
+    display: block
+    position: relative
+    display: none
+.header_burger:before,
+.header_burger:after
+    content: ''
+    background-color: #000
+    width: 100%
+    height: 2px
+    left: 0
+    position: absolute
+    transition: all 0.3s ease 0s
+.header_burger:before
+    top: 0
+.header_burger:after
+    bottom: 0            
+.header_burger span
+    background-color: #000
+    width: 100%
+    height: 2px
+    position: absolute
+    top: 9px
+    transition: all 0.3s ease 0s
         
     
 

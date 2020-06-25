@@ -1,6 +1,6 @@
 <div class="footer">
         <div class="footer-content container">
-            <div class="footer-item"><a href="#" class="logo"><img src="/images/logo.png" alt="Logo"></a></div>
+            <div class="footer-item"><a href="/" class="logo"><img src="/images/logo.png" alt="Logo"></a></div>
             <div class="footer-item">
                 <ul class="footer-list">
                     <li><a href="">О компании</a></li>

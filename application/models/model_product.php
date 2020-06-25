@@ -31,7 +31,7 @@ class Model_Product extends Model
         //print_r($this->$array_product);
         return $array_product; */
         //получаем имя категории
-        $query=$this->pdo->query("SELECT id,name FROM Category WHERE id=$id_cat");
+        $query=$this->pdo->query("SELECT id, name FROM category WHERE id=$id_cat");
         $data_category=$query->fetch();
         $perpage=40;//сколько товаров отображать на странице
         $query=$this->pdo->query("SELECT count(*) FROM products WHERE id_category IN (SELECT id FROM category WHERE id=$id_cat OR id_parent=$id_cat)");
@@ -85,7 +85,7 @@ class Model_Product extends Model
         echo "</pre>";*/
 
         //выведем так же рекоммендуемые товары к данному, это будут просто случайные товары
-        $recommenation_query=$this->pdo->query("SELECT id, name, image, price  FROM products where id<>$id_product order by rand() limit 10");
+        $recommenation_query=$this->pdo->query("SELECT id, name, image, price  FROM products where id<>$id_product and id_category in (select id from category where disabled=0) order by rand() limit 20");
         $recommenation_result=$recommenation_query->fetchall();
         $product['recommendation']=$recommenation_result;
         //array_unshift($product,$recommenation_result);

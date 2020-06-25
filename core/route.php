@@ -3,7 +3,7 @@ class Route
 {
 	static function start()
 	{
-		$pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
+		//$pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
 		// контроллер и действие по умолчанию
 		$controller_name = 'Main';
 		$action_name = 'index';
