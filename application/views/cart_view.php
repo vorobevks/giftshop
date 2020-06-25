@@ -20,7 +20,7 @@ foreach ($data as $row) {
     <tr class="productincart" data-id=<?=$row['id']?>>
         <td class="column_incart"><a href="/product/product/<?=$row['id']?>"><img src="<?=$row['image']?>" alt=""></a></td>
         <td><a href="/product/product/<?=$row['id']?>"><?=$row['name']?></a></td>
-        <td class="column_incart price" data-price="<?=$row['price']?>"><?=$row['price']?> &#8381;</td>
+        <td class="column_incart price cart_price" data-price="<?=$row['price']?>"><?=$row['price']?> &#8381;</td>
         <td class="column_incart tdblock">
         <div class="count_less count_button"><i class="fas fa-caret-left"></i></div>
         <input type="text" class="count_value" value=1 disabled>
@@ -39,12 +39,13 @@ foreach ($data as $row) {
                 <div class="modal-buy modal-dialog">
                     <div class="button-close"><i class="fas fa-times"></i></div>
                     <!--button class="button-close"><i class="fas fa-times"></i></button-->
-                    <form id="buy_form" action="/cart/buy" method="POST">
+                    <form id="buy_form" action="/core/telegram.php" method="POST">
                         <h3 class="modal-title">Введите Ваши данные</h3>
-                        <input type="text" name ="fio" placeholder='Фамилия Имя Отчество'><br>
-                        <input type="text" name= "address" placeholder='Ваш Адрес'><br>
-                        <input type="text" name= "phone" placeholder='Ваш номер телефона'><br>
-                        <input type="textarea" name= "comment" placeholder='Ваш комментарий' cols="30" rows="4"><br>
+                        <input type="text" name ="buy_fio" id="buy_fio" placeholder='Фамилия Имя Отчество'><br>
+                        <input type="text" name = "buy_address" id = "buy_address" placeholder='Ваш Адрес'><br>
+                        <input type="text" name = "buy_phone" id = "buy_phone" placeholder='Ваш номер телефона'><br>
+                        <input type="textarea" name= "buy_comment" id = "buy_comment" placeholder='Ваш комментарий' cols="30" rows="4"><br>
+                        <input type="hidden" name="name_form" value="buy">
                         <input type="submit" class= "submit_button" value="Оформить заказ">
                     </form>
                     

@@ -13,6 +13,7 @@
                         <h3 class="modal-title">Обратный звонок</h3>
                         <input type="text" name="name" id="feedback_name" placeholder='Ваше имя'><br>
                         <input type="phone" name="phone" id="feedback_phone" placeholder='Ваш номер телефона'><br>
+                        <input type="hidden" name="name_form" value="feedback">
                         <input type="submit" class="submit_button" value="Перезвоните мне">
                     </form>
                 </div>

@@ -18,6 +18,17 @@ class Controller_Cart extends Controller{
         $this->view->generate('cart_view.php','template_view.php',$this->data);
         
     }
+    //отображение корзины для аякса
+    function action_forajax(){
+        if (isset($_COOKIE['user_id'])){
+            $this->data=$this->model->get_cart($_COOKIE['user_id']);
+            if (count($this->data)==0){
+                $this->data=0;
+            }
+        }
+        else  $this->data=null;
+        $this->view->generate_empty('cart_view.php',$this->data);
+    }
     //добавить товар в корзину
     function action_add(int $id_product){
         if (isset($_COOKIE['user_id'])) echo $this->model->add_product($id_product, $_COOKIE['user_id']);
@@ -32,7 +43,15 @@ class Controller_Cart extends Controller{
     }
     //удаление товара из корзины
     function action_delete(int $id_product){
-        if (isset($_COOKIE['user_id'])) $this->model->del_product($id_product,$_COOKIE['user_id']);
+        if (isset($_COOKIE['user_id'])) {
+            $this->model->del_product($id_product,$_COOKIE['user_id']);
+            $this->data=$this->model->get_cart($_COOKIE['user_id']);
+            if (count($this->data)==0){
+                $this->data=0;
+            }
+        }
+        else  $this->data=null;
+        $this->view->generate_empty('cart_view.php',$this->data);
     }
 
 }
