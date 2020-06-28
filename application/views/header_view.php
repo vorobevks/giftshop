@@ -80,17 +80,17 @@
             </div>
             <ul class="menu">
                 <li class="menu-item">
-                    <a href="/menu/delivery" class="menu-link">
-                        <span class="icon delivery-icon"></span>ДОСТАВКА<span class="info">Способы доставки</span>
+                    <a href="/menu/about" class="menu-link">
+                        <span class="icon about-icon"></span>О НАС<span class="info">Как мы работаем</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <span class="icon pay-icon"></span>ОПЛАТА<span class="info">Варианты оплаты</span>
+                    <a href="/menu/pay" class="menu-link">
+                        <span class="icon pay-icon"></span>ЗАКАЗ<span class="info">Оплата и доставка</span>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="/menu/contacts" class="menu-link">
                         <span class="icon contact-icon"></span>КОНТАКТЫ<span class="info">+7(999)2592581</span>
                     </a>
                 </li>

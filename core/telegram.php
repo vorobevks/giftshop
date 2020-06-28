@@ -14,7 +14,6 @@
   }
   //для формы заказа
   if ($_POST['name_form']=='buy'){
-
     require_once 'database_data.php';
     if (isset($_COOKIE['user_id'])) $user_id= $_COOKIE['user_id'];
     $pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME.";charset=UTF8", USER, PASSWORD);
@@ -34,7 +33,7 @@
     $http = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://';
     foreach ($result as $row){
       $url=$http.$_SERVER['HTTP_HOST'].'/product/product/'.$row['id'];
-      $arr["Товар $i: "] = "id: ".$row['id']." name: ".$row['name']."%0A".$url;
+      $arr["Товар $i: "] = $row['name']."%0A".$url;
       //$arr["Товар $i: "] = $row['name'];
       $i++;
 
@@ -44,6 +43,24 @@
     
     //$txt="Новый заказ!%0A";
   }
+  //для заказа в один клик
+  if ($_POST['name_form']=='buy_one_click'){
+    $fio=$_POST['buy_fio'];
+    $address=$_POST['buy_address'];
+    $phone=$_POST['buy_phone'];
+    $comment=$_POST['buy_comment'];
+    $id_product=$_POST['id_product'];
+    $arr = array(
+      'ФиО: ' => $fio,
+      'Адрес' => $address,
+      'Телефон: ' => $phone,
+      'Комментарий: ' => $comment
+    );
+    $http = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://';
+    $url=$http.$_SERVER['HTTP_HOST'].'/product/product/'.$id_product;
+    $arr["Товар: "] = $url;
+  }
+  
   foreach($arr as $key => $value) {
     $txt .= "<b>".$key."</b> ".$value."%0A";
   };

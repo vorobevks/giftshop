@@ -47,10 +47,27 @@
         </div>
       </div>
       <div class="buy-block">
-        <a href="#" id="btn_incart" class="button button-in-cart disabled">В корзину</a>
+        <a href="#" id="btn_incart" class="button button-in-cart">В корзину</a>
         <input type="hidden" id="id_product" value="<?=$data['id']?>">
         <div class="">или</div>
-        <a href="#" class="button button-buy">Купить в 1 клик</a>
+        <div class="button button-buy button-modal">Купить в 1 клик</div>
+        <div class="modal">
+                <div class="modal_buy_one_click modal-dialog">
+                    <div class="button-close"><i class="fas fa-times"></i></div>
+                    <!--button class="button-close"><i class="fas fa-times"></i></button-->
+                    <form id="buy_form" action="/core/telegram.php" method="POST">
+                        <h3 class="modal-title">Введите Ваши данные</h3>
+                        <input type="text" name ="buy_fio" id="buy_fio" placeholder='Фамилия Имя Отчество'><br>
+                        <input type="text" name = "buy_address" id = "buy_address" placeholder='Ваш Адрес'><br>
+                        <input type="text" name = "buy_phone" id = "buy_phone" placeholder='Ваш номер телефона'><br>
+                        <input type="textarea" name= "buy_comment" id = "buy_comment" placeholder='Ваш комментарий' cols="30" rows="4"><br>
+                        <input type="hidden" name="name_form" value="buy_one_click">
+                        <input type="hidden" name="id_product" value="<?=$data['id']?>">
+                        <input type="submit" class= "submit_button" value="Оформить заказ">
+                    </form>
+                    
+                </div>
+            </div>
       </div>
       <div class="description">
         <?=$data['description']?>

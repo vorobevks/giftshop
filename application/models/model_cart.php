@@ -2,6 +2,7 @@
 class Model_Cart extends Model{
     //добавляем товар в корзину
     function add_product($id_product, $id_user){
+        
         $this->pdo->query("Insert into cart (id_product, id_user, count) values ($id_product, $id_user, 1)");
         return $this->count_products_in_cart($id_user);
     }

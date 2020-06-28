@@ -36,7 +36,7 @@ $(document).ready(function() {
                     $('#btn_incart').html("Товар в корзине"); 
                     $('#btn_incart').addClass("disabled");
                 }
-                else $('#btn_incart').removeClass("disabled");
+                //else $('#btn_incart').removeClass("disabled");
             }
         })
     }
@@ -180,28 +180,28 @@ $('#feedback_form').submit(function(e){
 });
 
 //оформляем заказ
-// $('#buy_form').submit(function(e){
-//     e.preventDefault();
-//     if ($(this).children('#buy_fio').val()=='') 
-//         $(this).children('#buy_fio').css('border','1px solid red');
-//     if ($(this).children('#buy_address').val()=='') 
-//         $(this).children('#buy_address').css('border','1px solid red');
-//     if ($(this).children('#buy_phone').val()=='') 
-//         $(this).children('#buy_phone').css('border','1px solid red');
-//     if (($(this).children('#buy_fio').val()!='') && ($(this).children('#buy_address').val()!='') && 
-//             ($(this).children('#buy_phone').val()!='')){
-//         $.ajax({
-//             url: this.action,
-//             type: this.method,
-//             data: $(this).serialize(),
-//             success: function(data){
-//                 if (data=='OK') alert("Спасибо за Ваш заказ. Мы с Вами обязательно свяжемся и уточним все детали заказа")
-//                 else alert("Что-то пошло не так. Попробуйте позже.");
-//             }
-//         });
-//         $(this).parent().parent().removeClass("open");
-//     }
-// });
+$('.main').on("submit", '#buy_form',function(e){
+    e.preventDefault();
+    if ($(this).children('#buy_fio').val()=='') 
+        $(this).children('#buy_fio').css('border','1px solid red');
+    if ($(this).children('#buy_address').val()=='') 
+        $(this).children('#buy_address').css('border','1px solid red');
+    if ($(this).children('#buy_phone').val()=='') 
+        $(this).children('#buy_phone').css('border','1px solid red');
+    if (($(this).children('#buy_fio').val()!='') && ($(this).children('#buy_address').val()!='') && 
+            ($(this).children('#buy_phone').val()!='')){
+        $.ajax({
+            url: this.action,
+            type: this.method,
+            data: $(this).serialize(),
+            success: function(data){
+                if (data=='OK') alert("Спасибо за Ваш заказ. Мы с Вами обязательно свяжемся и уточним все детали заказа")
+                else alert("Что-то пошло не так. Попробуйте позже.");
+            }
+        });
+        $(this).parent().parent().removeClass("open");
+    }
+});
 
 
 //убираем красные рамки при вводе текста в форму обратной связи

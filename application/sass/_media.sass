@@ -10,6 +10,7 @@
         width: 100% !important
     .main
         flex-direction: column
+        justify-content: unset
     //.product
     //    flex-direction: column
     //    .photo-product, .description-block
@@ -80,6 +81,8 @@
         flex-direction: column !important
         align-items: center
         padding-top: 13px !important
+    .footer-list li
+        text-align: center
     .footer-item
         margin: 5px 0 !important
     .product
@@ -90,7 +93,9 @@
 
 @media screen and ( max-width: 500px )
     .slider
-        display: none    
+        display: none 
+    .list_delivery_text
+        width: 92%   
 @media screen and ( max-width: 410px )
     .bottom-header
         height: 60px !important
@@ -138,6 +143,11 @@
         width: 33%
         display: inline-block
         border-bottom: 0
+    .list_delivery
+        font-size: 0.8rem
+        &_div
+            width: 20px
+            height: 20px
     
 
     
