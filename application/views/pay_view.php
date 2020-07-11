@@ -1,9 +1,9 @@
 <h3>Способы доставки и оплаты:</h3>
 <div class="list_delivery">
     <div class="list_delivery_item"><div class="list_delivery_div">1</div> <div class="list_delivery_text">Почта России: Мы отправим Ваш заказ наложенным платежом. 
-Оплатить его Вы сможете непосредственно при получении в отделении Почты России.</div>
+Оплатить его Вы сможете непосредственно при получении в отделении Почты России. Стоимость доставки Почтой России 295 рублей.</div>
 </div>
-    <div class="list_delivery_item"><div class="list_delivery_div">2</div><div class="list_delivery_text">Курьерская доставка: если Вы проживаете в г. Оренбурге, то мы доставим Ваш заказ в удобное для Вас время, оплатить его Вы сможете так же при получении.</div>
+    <div class="list_delivery_item"><div class="list_delivery_div">2</div><div class="list_delivery_text">Курьерская доставка: если Вы проживаете в г. Оренбурге, то мы <b>бесплатно</b> доставим Ваш заказ в удобное для Вас время, оплатить его Вы сможете так же при получении.</div>
 </div>
     <div class="list_delivery_item"><div class="list_delivery_div">3</div><div class="list_delivery_text">Самовывоз: Вы можете самостоятельно забрать свой заказ в удобное для Вас время. Оплатить его Вы сможете так же непосредственно при получени.</div>
 </div>

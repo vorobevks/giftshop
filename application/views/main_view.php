@@ -10,12 +10,12 @@
     
 </div>
 
-<div class="search-group">
+<!-- <div class="search-group">
     <form action="" class="search">
         <input type="text" placeholder="Поиск по товарам..." class="search-text">
         <input type="submit" value="Найти" class="search-button submit_button">
     </form>
-</div>
+</div> -->
 <h2>Рекомендуемые товары</h2>
 <div class="product-list">
     <?

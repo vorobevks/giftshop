@@ -18,7 +18,7 @@
             <div class="footer-item">
                 <form action="" method="POST">
                     Подпишись на скидки<br>
-                    <input type="text" placeholder="E-mail"><br>
+                    <input type="email" placeholder="E-mail"><br>
                     <input type="submit" value="Подписаться">
                 </form>
             </div>

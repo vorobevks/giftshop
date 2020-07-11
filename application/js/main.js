@@ -22,6 +22,7 @@ function get_count_cart(){
     });
 }
 $(document).ready(function() {
+    $(".phone_mask").mask("+7(999)999-99-99");
     if ($.cookie("user_name")){
         //проверяем количество товаров в корзине
         get_count_cart();
@@ -76,9 +77,9 @@ $(document).ready(function() {
         pagination: {
         el: '.swiper-pagination',
         clickable: true,
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-        },
+        // renderBullet: function (index, className) {
+        //     return '<span class="' + className + '">' + (index + 1) + '</span>';
+        // },
         },
     });
     
@@ -164,7 +165,7 @@ $('#feedback_form').submit(function(e){
     if ($(this).children('#feedback_name').val()=='') 
         $(this).children('#feedback_name').css('border','1px solid red');
     if ($(this).children('#feedback_phone').val()=='') 
-        $(this).children('#feedback_phone').css('border','1px solid red');
+        $(this).children('#feedback_phone').css('border','1px solid red');        
     if (($(this).children('#feedback_name').val()!='') && ($(this).children('#feedback_phone').val()!='')){
         $.ajax({
             url: this.action,
@@ -195,7 +196,10 @@ $('.main').on("submit", '#buy_form',function(e){
             type: this.method,
             data: $(this).serialize(),
             success: function(data){
-                if (data=='OK') alert("Спасибо за Ваш заказ. Мы с Вами обязательно свяжемся и уточним все детали заказа")
+                if (data=='OK') {
+                    alert("Спасибо за Ваш заказ. Мы с Вами обязательно свяжемся и уточним все детали заказа.")
+                    location.reload();
+                }
                 else alert("Что-то пошло не так. Попробуйте позже.");
             }
         });
@@ -282,6 +286,10 @@ $('.main').on("click", ".count_more", function(){
     $(this).parent().siblings('.cost').text(price*(count+1) +' ₽');
     $('.final_cost').data('cost', result_cost+price);
     $('.final_cost').text(result_cost+price +' ₽');
+    $.ajax({
+        url: "/cart/update/"+$(this).data('id')+"/"+(count+1),
+        type: "post",
+    })
 })
 //уменьшаем количество товара на 1
 $('.main').on("click", ".count_less", function(){
@@ -294,6 +302,10 @@ $('.main').on("click", ".count_less", function(){
     $(this).parent().siblings('.cost').text(price*(count-1) +' ₽');
     $('.final_cost').data('cost', result_cost-price);
     $('.final_cost').text(result_cost-price+' ₽');
+    $.ajax({
+        url: "/cart/update/"+$(this).data('id')+"/"+(count-1),
+        type: "post",
+    })
     }
 })
 /*const cardButton = document.querySelector("#card-button");

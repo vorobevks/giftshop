@@ -22,9 +22,16 @@ class Route
 			$action_name = $routes[2];
 		}
 		//получаем параметры
-		if ( !empty($routes[3]) )
+		if (!empty($routes[3]))
+			$parameters=$routes[3];
+		if (!empty($routes[4]) )
 		{
-			$parameters = $routes[3];
+			$i=3;
+			$parameters=null;
+			while (!empty($routes[$i])){
+				$parameters[] = $routes[$i];
+				$i++;
+			}
 		}
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;

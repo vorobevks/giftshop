@@ -1,0 +1,161 @@
+.product 
+    display: flex
+    padding: 20px 0
+    justify-content: space-between
+$w: 20rem
+.photo-product 
+    width: $w
+    min-width: $w
+.main-photo-product 
+    width: $w
+    //line-height: $w
+    height: $w
+    text-align: center
+    margin-bottom: 1rem
+    display: flex
+    align-items: center
+    justify-content: space-around
+    img 
+        max-width: $w
+        max-height: $w
+        vertical-align: middle
+.small-photo-block 
+    display: flex
+    justify-content: flex-start
+    flex-wrap: wrap
+    $count-small-photo: 3
+    .small-photo-item
+        width: 100%/$count-small-photo
+        height: 126px
+        //line-height: 126px
+        text-align: center
+        display: flex
+        align-items: center
+        justify-content: space-around
+    img
+        max-width: 99%
+        max-height: 99%
+        vertical-align: middle
+    .small-photo-item:hover
+        outline: 1px solid #8c8c8c
+        z-index: 1 
+
+.description-block 
+    text-align: justify 
+    width: 60%
+    padding-left: 5px
+    h3
+        text-align: start
+    
+            
+.price-and-delivery
+    padding-top: 8px
+    display: flex
+    justify-content: space-between
+    .price
+        display: flex
+        align-items: center
+        span
+            font-weight: bolder
+            font-size: 30px
+            color: #9ac111
+            display: block
+        a
+            margin-top: -5px
+            font-size: 12px
+            border-bottom: 0.5px dotted black
+            color: black
+            display: block
+        a:hover
+            border-bottom: none
+    .delivery
+        font-size: 14px
+        span
+            color: #9ac111    
+    
+.buy-block
+    padding: 15px 0
+    display: flex
+    justify-content: space-between
+    line-height: 40px
+    .button
+        width: 43%
+        height: 40px
+        border-radius: 5px                        
+        text-align: center
+    
+    .button-in-cart
+        background-color: #9ac111
+        color: white
+    
+    .button-in-cart:hover
+        background-color: #aad411
+    
+    .button-in-cart:active
+        background-color: #8daf10
+    
+    .button-buy
+        background-color: #cac7c7
+        color: black
+    
+    .button-buy:hover
+        background-color: #dad8d8
+    
+    .button-buy:active
+        background-color: #b3afaf
+
+.product-list-recommendation
+    //height: 300px
+    font-size: 20px !important
+    line-height: 1.2rem
+    display: flex
+    justify-content: flex-start
+    flex-wrap: wrap
+    $count: 5 
+    .product-item 
+        height: 200px
+        width: 100%/$count
+        line-height: 1
+        font-size: 14px
+
+    
+
+    .product-link:hover 
+        .product-name 
+            color: red
+        
+    
+
+    .product-link 
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100%
+        height: 100%
+        color: #432966
+
+    
+
+    .image-block
+        height: 130px
+        width: 130px
+        display: flex
+        align-items: center
+        //line-height: 130px
+        text-align: center
+        justify-content: space-around
+
+    
+
+    .product-image 
+
+        margin: 0 auto
+        max-width: 96%
+        max-height: 120px
+        vertical-align: middle
+    
+
+    .product-name,
+    .product-price 
+        display: block
+        font-size: 13px

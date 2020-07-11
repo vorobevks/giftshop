@@ -1,13 +1,15 @@
 @media screen and ( max-width: 1100px)
     $widthContainer: 800px
-    .menu-item
-        width: 130px !important 
+    .product-list .product-item
+        width: 160px
+    .menu .menu-item
+        width: 130px
     .slider
         //display: none
     .container
         //width: 768px
-    .content
-        width: 100% !important
+    .main .content
+        width: 100%
     .main
         flex-direction: column
         justify-content: unset
@@ -18,18 +20,18 @@
     #sidebar
         display: none
     .left-sidebar
-        width: 100% !important
+        width: 100%
     .header
         font-size: 14px
     
 @media screen and ( max-width: 835px )
     .footer
         font-size: 14px
-    .bottom-header
-        height: 80px !important
-    .logo img
-        content: url('/images/logo-small.png')
-        height: 60px !important
+    .header .bottom-header
+        height: 80px
+        .logo img
+            content: url('/images/logo-small.png')
+            height: 60px
     .menu
         position: fixed
         top: 0px
@@ -39,17 +41,17 @@
         height: 100%
         background-color: #ffd401
         z-index: 3
-        display: block !important
-        transition: all 0.3s ease 0s
-        .info, .icon
-            display: none !important
-        &-item
-            height: 40px !important
-            width: 100% !important
-            line-height: 3 !important
-        &-link
-            vertical-align: middle !important
-            align-items: center !important
+        display: block
+        transition: all 0.3s ease 0s            
+        .menu-item
+            height: 40px 
+            width: 100% 
+            line-height: 3
+            .info, .icon
+                display: none
+            .menu-link
+                vertical-align: middle
+                align-items: center
     .menu.active
         right: 0 !important
     .header_burger
@@ -77,19 +79,19 @@
         background-color: #000
         height: 285px
         width: 100%
-    .footer-content
-        flex-direction: column !important
+    .footer .footer-content
+        flex-direction: column
         align-items: center
-        padding-top: 13px !important
+        padding-top: 13px
     .footer-list li
         text-align: center
     .footer-item
-        margin: 5px 0 !important
+        margin: 5px 0
     .product
         flex-direction: column
         align-items: center
     .description-block
-        width: 100% !important
+        width: 100% 
 
 @media screen and ( max-width: 500px )
     .slider
@@ -97,22 +99,23 @@
     .list_delivery_text
         width: 92%   
 @media screen and ( max-width: 410px )
-    .bottom-header
-        height: 60px !important
-    .logo img
-        content: url('/images/logo-small.png')
-        height: 45px !important
+    .header .bottom-header
+        height: 60px
+        .logo img
+            content: url('/images/logo-small.png')
+            height: 45px
     .price-and-delivery
         flex-direction: column
-    .price a
-        display: inline !important
+        .price a
+            display: inline
     .delivery
         margin-top: 15px
-    .item_pagination, .item_pagination_icon
-        width: 35px !important
-        height: 35px !important
-    .item_pagination a, .item_pagination_icon a .fas
-        line-height: 35px !important
+    .list_pagination .item_pagination, .item_pagination_icon
+        width: 35px
+        height: 35px
+    .list_pagination 
+        .item_pagination a, .item_pagination_icon a .fas
+            line-height: 35px
     .top-header
         font-size: 13px
     .modal form input
@@ -120,7 +123,7 @@
     .modal-dialog
         padding: 35px 25px
     .modal-registration
-        padding: 35px 5px 35px 25px
+        //padding: 35px 5px 35px 25px
 
 @media screen and ( max-width: 673px )
     tr:first-child
