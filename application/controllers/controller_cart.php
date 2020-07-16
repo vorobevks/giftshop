@@ -77,12 +77,14 @@ class Controller_Cart extends Controller{
         $fio=$_POST['buy_fio'];
         $address=$_POST['buy_address'];
         $phone=$_POST['buy_phone'];
+        $name_form=$_POST['name_form'];
         $comment= !empty($_POST['buy_comment']) ? $_POST['buy_comment'] : null;
         $arr = array(
             'fio' => $fio,
             'address' => $address,
             'phone' => $phone,
-            'comment' => $comment
+            'comment' => $comment,
+            'name_form' => $name_form
           );
         
         if (!$id_product){

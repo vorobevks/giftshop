@@ -48,7 +48,7 @@ foreach ($data['cart'] as $row) {
                 <div class="modal-buy modal-dialog">
                     <div class="button-close"><i class="fas fa-times"></i></div>
                     <!--button class="button-close"><i class="fas fa-times"></i></button-->
-                    <form id="buy_form" action="/cart/order" method="POST">
+                    <form id="buy_form" action="/cart/order" class="buy_form" method="POST">
                         <h3 class="modal-title">Введите Ваши данные</h3>
                         <input type="text" name ="buy_fio" id="buy_fio" placeholder='Фамилия Имя Отчество'><br>
                         <input type="text" name = "buy_address" id = "buy_address" placeholder='Ваш Адрес'><br>
@@ -78,7 +78,7 @@ foreach ($data['cart'] as $row) {
                     <th class="header_cart_item">Статус</th>
                     
                 </tr>
-            <?
+            <?               
                 foreach ($data['order'] as $row){
                     $arr_id=explode("~$", $row['id_product']);
                     $arr_name=explode("~$", $row['name']);

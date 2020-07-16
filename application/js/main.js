@@ -22,6 +22,125 @@ function get_count_cart(){
     });
 }
 $(document).ready(function() {
+    //$(".phone_mask").mask("+7(000) 000-00-00");
+    // debugger;
+    $("#feedback_form").validate({
+        //debug: true,
+        errorClass: "invalid",
+        rules: {
+          // no quoting necessary
+          name: "required",
+          phone: {
+              required: true,
+              minlength: 17,
+              maxlength: 17
+          }
+        },
+        messages: {
+            name: null,
+            phone: null
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                url: form.action,
+                type: form.method,
+                data: $(form).serialize(),
+                success: function(data){
+                    if (data=='OK') alert("Мы Вам обязательно перезвоним в ближайшее время")
+                    else alert("Что-то пошло не так. Попробуйте позже.");
+                }
+            });
+            $(form).parents('.modal').removeClass("open");
+        }
+      });
+
+    $("#reg_form").validate({
+        errorClass: "invalid",
+        errorElement: "div",
+        rules:{
+            login: {
+                required: true,
+                minlength: 5                
+            },
+            email: {
+                email:true
+            },
+            password: {
+                required: true,
+                minlength: 8
+            },
+            repassword: {
+                required: true,
+                minlength: 8,
+                equalTo: "#password"
+                             
+            }
+        },
+        messages:{
+            login:{
+                required: "Обязательное поле",
+                minlength: "Имя должно быть не менее {0} символов"
+            },
+            email:{
+                email: "Введите корректный e-mail"
+            },
+            password:{
+                required: "Обязательное поле",
+                minlength: "Пароль должен содержать минимум {0} символов"
+            },
+            repassword:{
+                required: "Обязательное поле",
+                minlength: "Пароль должен содержать минимум {0} символов",
+                equalTo: "Пароли должны совпадать",
+            }
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                        url: form.action,
+                        type: form.method,
+                        data: $(form).serialize(),
+                        success: function(data) {
+                            if (data=='false') alert('Такой пользователь уже существует');
+                            else location.reload();
+                        }
+                    });
+            }
+    });
+
+    $('.buy_form').validate({
+        errorClass: "invalid",
+        rules:{
+            buy_fio: "required",
+            buy_address: "required",
+            buy_phone: {
+                required: true,
+                minlength: 17,
+                maxlength: 17
+            }
+        },
+        messages:{
+            buy_fio: null,
+            buy_address: null,
+            buy_phone: null
+        },
+        submitHandler: function(form) {
+            $.ajax({
+                url: form.action,
+                type: form.method,
+                data: $(form).serialize(),
+                success: function(data){
+                    if (data=='OK') {
+                        alert("Спасибо за Ваш заказ. Мы с Вами обязательно свяжемся и уточним все детали заказа.")
+                        location.reload();
+                    }
+                    else alert("Что-то пошло не так. Попробуйте позже.");
+                }
+            });
+            $(form).parents('.modal').removeClass("open");
+        }
+    })
+
+    $(".phone_mask").mask("+7(000) 000-00-00", { placeholder: "+7(___) ___-__-__"});
     if ($.cookie("user_name")){
         //проверяем количество товаров в корзине
         get_count_cart();
@@ -43,8 +162,9 @@ $(document).ready(function() {
     //добавление товара в корзину
     $('#btn_incart').click(function(e){
         e.preventDefault();
-        $('#btn_incart').addClass("disabled");
+        
         if ($.cookie("user_name")) {
+        $('#btn_incart').addClass("disabled");
         var id_product = $('#id_product').val();
         $.ajax({
             url:"/cart/add/"+id_product,
@@ -139,130 +259,130 @@ $('#logon_form').submit(function(e){
     });
 });
 //проверка на существование пользователя в бд
-$('#login').keyup(function(){
-    $.ajax({
-        url: "/application/isUser.php",
-        type: "POST",
-        data: {login:$(this).val()},
-        success: function(data){
-            if(data=="false" && $('#login').val().length>4) {
-                $('#user_ok').removeClass("hidden");
-                $('#user_wrong').addClass("hidden");
+// $('#login').keyup(function(){
+//     $.ajax({
+//         url: "/application/isUser.php",
+//         type: "POST",
+//         data: {login:$(this).val()},
+//         success: function(data){
+//             if(data=="false" && $('#login').val().length>4) {
+//                 $('#user_ok').removeClass("hidden");
+//                 $('#user_wrong').addClass("hidden");
 
-            }
-            else{
-                $('#user_ok').addClass("hidden");
-                $('#user_wrong').removeClass("hidden");
-            }
-        }
-    })
-})
+//             }
+//             else{
+//                 $('#user_ok').addClass("hidden");
+//                 $('#user_wrong').removeClass("hidden");
+//             }
+//         }
+//     })
+// })
 
 //форма обратной связи
-$('#feedback_form').submit(function(e){
-    e.preventDefault();
-    if ($(this).children('#feedback_name').val()=='') 
-        $(this).children('#feedback_name').css('border','1px solid red');
-    if ($(this).children('#feedback_phone').val()=='') 
-        $(this).children('#feedback_phone').css('border','1px solid red');        
-    if (($(this).children('#feedback_name').val()!='') && ($(this).children('#feedback_phone').val()!='')){
-        $.ajax({
-            url: this.action,
-            type: this.method,
-            data: $(this).serialize(),
-            success: function(data){
-                if (data=='OK') alert("Мы Вам обязательно перезвоним в ближайшее время")
-                else alert("Что-то пошло не так. Попробуйте позже.");
-            }
-        });
-        $(this).parent().parent().removeClass("open");
-    }
-});
+// $('#feedback_form').submit(function(e){
+//     e.preventDefault();
+//     // if ($(this).children('#feedback_name').val()=='') 
+//     //     $(this).children('#feedback_name').css('border','1px solid red');
+//     // if ($(this).children('#feedback_phone').val()=='') 
+//     //     $(this).children('#feedback_phone').css('border','1px solid red');        
+//     // if (($(this).children('#feedback_name').val()!='') && ($(this).children('#feedback_phone').val()!='')){
+//         $.ajax({
+//             url: this.action,
+//             type: this.method,
+//             data: $(this).serialize(),
+//             success: function(data){
+//                 if (data=='OK') alert("Мы Вам обязательно перезвоним в ближайшее время")
+//                 else alert("Что-то пошло не так. Попробуйте позже.");
+//             }
+//         });
+//         $(this).parent().parent().removeClass("open");
+//     // }
+// });
 
 //оформляем заказ
-$('.main').on("submit", '#buy_form',function(e){
-    e.preventDefault();
-    if ($(this).children('#buy_fio').val()=='') 
-        $(this).children('#buy_fio').css('border','1px solid red');
-    if ($(this).children('#buy_address').val()=='') 
-        $(this).children('#buy_address').css('border','1px solid red');
-    if ($(this).children('#buy_phone').val()=='') 
-        $(this).children('#buy_phone').css('border','1px solid red');
-    if (($(this).children('#buy_fio').val()!='') && ($(this).children('#buy_address').val()!='') && 
-            ($(this).children('#buy_phone').val()!='')){
-        $.ajax({
-            url: this.action,
-            type: this.method,
-            data: $(this).serialize(),
-            success: function(data){
-                if (data=='OK') {
-                    alert("Спасибо за Ваш заказ. Мы с Вами обязательно свяжемся и уточним все детали заказа.")
-                    location.reload();
-                }
-                else alert("Что-то пошло не так. Попробуйте позже.");
-            }
-        });
-        $(this).parent().parent().removeClass("open");
-    }
-});
+// $('.main').on("submit", '#buy_form',function(e){
+//     e.preventDefault();
+//     if ($(this).children('#buy_fio').val()=='') 
+//         $(this).children('#buy_fio').css('border','1px solid red');
+//     if ($(this).children('#buy_address').val()=='') 
+//         $(this).children('#buy_address').css('border','1px solid red');
+//     if ($(this).children('#buy_phone').val()=='') 
+//         $(this).children('#buy_phone').css('border','1px solid red');
+//     if (($(this).children('#buy_fio').val()!='') && ($(this).children('#buy_address').val()!='') && 
+//             ($(this).children('#buy_phone').val()!='')){
+//         $.ajax({
+//             url: this.action,
+//             type: this.method,
+//             data: $(this).serialize(),
+//             success: function(data){
+//                 if (data=='OK') {
+//                     alert("Спасибо за Ваш заказ. Мы с Вами обязательно свяжемся и уточним все детали заказа.")
+//                     location.reload();
+//                 }
+//                 else alert("Что-то пошло не так. Попробуйте позже.");
+//             }
+//         });
+//         $(this).parent().parent().removeClass("open");
+//     }
+// });
 
 
-//убираем красные рамки при вводе текста в форму обратной связи
-$('#feedback_name').keyup(function(){
-    $('#feedback_name').css('border','1px solid #cecece');
-})
-$('#feedback_phone').keyup(function(){
-    $('#feedback_phone').css('border','1px solid #cecece');
-})
-$('#buy_fio').keyup(function(){
-    $('#buy_fio').css('border','1px solid #cecece');
-})
-$('#buy_address').keyup(function(){
-    $('#buy_address').css('border','1px solid #cecece');
-})
-$('#buy_phone').keyup(function(){
-    $('#buy_phone').css('border','1px solid #cecece');
-})
+// //убираем красные рамки при вводе текста в форму обратной связи
+// $('#feedback_name').keyup(function(){
+//     $('#feedback_name').css('border','1px solid #cecece');
+// })
+// $('#feedback_phone').keyup(function(){
+//     $('#feedback_phone').css('border','1px solid #cecece');
+// })
+// $('#buy_fio').keyup(function(){
+//     $('#buy_fio').css('border','1px solid #cecece');
+// })
+// $('#buy_address').keyup(function(){
+//     $('#buy_address').css('border','1px solid #cecece');
+// })
+// $('#buy_phone').keyup(function(){
+//     $('#buy_phone').css('border','1px solid #cecece');
+// })
 
 //регистрация
-$('#reg_form').submit(function(e){
+// $('#reg_form').submit(function(e){
     
-    e.preventDefault();
-    if ($('#login').val().length>4 && $('#password').val().length>6 && $('#password').val()==$('#repassword').val()){
-    $.ajax({
-        url: this.action,
-        type: this.method,
-        data: $(this).serialize(),
-        success: function(data) {
-            if (data=='false') alert('Такой пользователь уже существует');
-            else location.reload();
-        }
-    });
-    }
-});
+//     e.preventDefault();
+//     if ($('#login').val().length>4 && $('#password').val().length>6 && $('#password').val()==$('#repassword').val()){
+//     $.ajax({
+//         url: this.action,
+//         type: this.method,
+//         data: $(this).serialize(),
+//         success: function(data) {
+//             if (data=='false') alert('Такой пользователь уже существует');
+//             else location.reload();
+//         }
+//     });
+//     }
+// });
 
 //соответсвует ли пароль указанным требованиям
-$('#password').keyup(function(){
-    if ($(this).val().length>6) {
-        $('#password_ok').removeClass("hidden");
-        $('#password_wrong').addClass("hidden");
-    }
-    else{
-        $('#password_ok').addClass("hidden");
-        $('#password_wrong').removeClass("hidden");
-    }
-})
-//совпадают ли пароли
-$('#repassword').keyup(function(){
-    if($(this).val()==($('#password').val())){
-        $('#repassword_ok').removeClass("hidden");
-        $('#repassword_wrong').addClass("hidden");
-    }
-    else{
-        $('#repassword_ok').addClass("hidden");
-        $('#repassword_wrong').removeClass("hidden");
-    }
-})
+// $('#password').keyup(function(){
+//     if ($(this).val().length>6) {
+//         $('#password_ok').removeClass("hidden");
+//         $('#password_wrong').addClass("hidden");
+//     }
+//     else{
+//         $('#password_ok').addClass("hidden");
+//         $('#password_wrong').removeClass("hidden");
+//     }
+// })
+// //совпадают ли пароли
+// $('#repassword').keyup(function(){
+//     if($(this).val()==($('#password').val())){
+//         $('#repassword_ok').removeClass("hidden");
+//         $('#repassword_wrong').addClass("hidden");
+//     }
+//     else{
+//         $('#repassword_ok').addClass("hidden");
+//         $('#repassword_wrong').removeClass("hidden");
+//     }
+// })
 
 
 //модальные окна

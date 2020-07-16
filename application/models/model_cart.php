@@ -28,7 +28,7 @@ class Model_Cart extends Model{
     }
     //получаем список заказов
     function get_order(int $id_user){
-        $query = $this->pdo->query("SELECT o.id, GROUP_CONCAT(DISTINCT otp.id_product SEPARATOR '~$') as id_product, GROUP_CONCAT(DISTINCT p.name separator '~$') as name, GROUP_CONCAT(DISTINCT otp.count_product separator '~$') as count_product, o.time, o.status
+        $query = $this->pdo->query("SELECT o.id, GROUP_CONCAT(otp.id_product SEPARATOR '~$') as id_product, GROUP_CONCAT(p.name separator '~$') as name, GROUP_CONCAT(otp.count_product separator '~$') as count_product, o.time, o.status
         from ordering as o
             left join  order_to_product as otp on o.id=otp.id_order 
             inner JOIN products as p on otp.id_product=p.id
@@ -55,7 +55,7 @@ class Model_Cart extends Model{
         foreach ($list_product as $row){
         $query->execute([$id_new_order, $row['id'], $row['count']]);
         }
-        if (isset($_COOKIE['user_id'])){
+        if (isset($_COOKIE['user_id']) and ($arr['name_form']!=='buy_one_click')){
             $id_user=$_COOKIE['user_id'];
             $this->pdo->query("delete from cart where id_user=$id_user");
         }

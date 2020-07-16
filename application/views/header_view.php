@@ -9,10 +9,10 @@
             <div class="modal">
                 <div class="modal-dialog">
                     <div class="button-close"><i class="fas fa-times"></i></div>
-                    <form id="feedback_form" action="/core/telegram.php" method="POST">
+                    <form id="feedback_form" action="/core/telegram.php" class="myform" method="POST">
                         <h3 class="modal-title">Обратный звонок</h3>
                         <input type="text" name="name" id="feedback_name" placeholder='Ваше имя'><br>
-                        <input type="phone" name="phone" id="feedback_phone" class="phone_mask" placeholder='Ваш номер телефона'><br>
+                        <input type="tel" name="phone" id="feedback_phone" class="phone_mask" placeholder='Ваш номер телефона'><br>
                         <input type="hidden" name="name_form" value="feedback">
                         <input type="submit" class="submit_button" value="Перезвоните мне">
                     </form>
@@ -44,26 +44,25 @@
             <div class="modal">
                 <div class="modal-registration modal-dialog">
                     <div class="button-close"><i class="fas fa-times"></i></div>
-                    <form id="reg_form" action="/logon/reg"   method="POST">
+                    <form id="reg_form" action="/logon/reg"  class=form_valid method="POST">
                         <h3 class="modal-title">Регистрация</h3>
                         <div class=form_modal>
-                        <input type="text" id="login" name="login" placeholder='Ваш логин'><i id="user_ok"
-                            class="hidden icon_green fas fa-check-circle"></i><i id="user_wrong"
-                            class="hidden icon_red fas fa-times-circle"
-                            title="Пользователь с таким именем уже существует"></i>
-                        </div>
-                        <input type="email" name="email" placeholder='Ваш e-mail (необязательно)'><br>
-                        <div class=form_modal>
-                        <input type="password" minlength="6" name="password" id="password" placeholder='Ваш пароль'><i
-                            id="password_ok" class="hidden icon_green fas fa-check-circle"></i><i id="password_wrong"
-                            class="hidden icon_red fas fa-times-circle"
-                            title="Пароль должен содержать минимум 6 символов&#10итд."></i>
+                            <input type="text" id="login" name="login" placeholder='Ваш логин'>
+                            <!-- <i id="user_ok" class="hidden icon_green fas fa-check-circle"></i>
+                            <i id="user_wrong" class="hidden icon_red fas fa-times-circle" title="Пользователь с таким именем уже существует"></i> -->
                         </div>
                         <div class=form_modal>
-                        <input type="password" minlength="6" name="repassword" id="repassword"
-                            placeholder='Подтверждение пароля'><i id="repassword_ok"
-                            class="hidden icon_green fas fa-check-circle"></i><i id="repassword_wrong"
-                            class="hidden icon_red fas fa-times-circle" title="Введенные пароли не совпадают"></i>
+                            <input type="email" name="email" placeholder='Ваш e-mail (необязательно)'>
+                        </div>
+                        <div class=form_modal>
+                            <input type="password" minlength="6" name="password" id="password" placeholder='Ваш пароль'>
+                            <!-- <i id="password_ok" class="hidden icon_green fas fa-check-circle"></i>
+                            <i id="password_wrong" class="hidden icon_red fas fa-times-circle" title="Пароль должен содержать минимум 6 символов&#10итд."></i> -->
+                        </div>
+                        <div class=form_modal>
+                        <input type="password" minlength="6" name="repassword" id="repassword" placeholder='Подтверждение пароля'>
+                            <!-- <i id="repassword_ok" class="hidden icon_green fas fa-check-circle"></i>
+                            <i id="repassword_wrong" class="hidden icon_red fas fa-times-circle" title="Введенные пароли не совпадают"></i> -->
                         </div>
                         <input type="submit" class="submit_button" id="submit_reg" value="Зарегистироваться">
                     </form>
