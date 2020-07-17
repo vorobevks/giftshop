@@ -16,7 +16,7 @@
                 <a href="https://viber.click/79992592581" class="link-fab"><i class="fab fa-viber"></i></a>
             </div>
             <div class="footer-item">
-                <form action="" method="POST">
+                <form action="#" method="POST">
                     Подпишись на скидки<br>
                     <input type="email" placeholder="E-mail"><br>
                     <input type="submit" value="Подписаться">

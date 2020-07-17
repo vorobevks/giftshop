@@ -6,7 +6,7 @@
         <div class="swiper-slide"><a href="/product/product_list/1"><img src="/images/slider44.jpg" alt=""></a></div>
         <div class="swiper-slide"><a href="/product/product_list/28"><img src="/images/slider55.jpg" alt=""></a></div>
     </div>
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
     
 </div>
 

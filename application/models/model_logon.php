@@ -8,7 +8,7 @@ class Model_Logon extends Model
     {   
        
        // return "adasd";
-		$result=$this->pdo->query("SELECT * from users where name='$login' and password=md5('$password')");
+		$result=$this->pdo->query("SELECT * from users where name=UPPER('$login') and password=md5('$password')");
         
         if ($result->rowcount()) {
             
@@ -23,12 +23,12 @@ class Model_Logon extends Model
     function registration($login,$email,$password)
     {
         //$pdo = new PDO("mysql:host=".HOST.";dbname=".DBNAME, USER, PASSWORD);
-		$result=$this->pdo->query("SELECT * from users where name='$login'");
+		$result=$this->pdo->query("SELECT * from users where name=UPPER('$login')");
         if ($result->rowcount()) 
         return false;
         else 
         {
-            $new_user=$this->pdo->query("INSERT INTO users (name,email,password) values ('$login','$email',md5('$password'))");
+            $new_user=$this->pdo->query("INSERT INTO users (name,email,password) values (UPPER('$login'),'$email',md5('$password'))");
             //print_r ($this->pdo->lastInsertId());
             setcookie("user_name", $login, time()+60*24*30, "/");
 

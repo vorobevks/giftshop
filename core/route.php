@@ -24,7 +24,7 @@ class Route
 		//получаем параметры
 		if (!empty($routes[3]))
 			$parameters=$routes[3];
-		if (!empty($routes[4]) )
+		if (!empty($routes[4]) and $routes[4][0]!=="?")
 		{
 			$i=3;
 			$parameters=null;
@@ -77,13 +77,13 @@ class Route
 		else
 		{
 			// здесь также разумнее было бы кинуть исключение
-			SELF::ErrorPage404();
+			//SELF::ErrorPage404();
 		}
 	
 	}
 	
 	static function ErrorPage404()
 	{
-		echo "<img src='/images/404.jpg' alt='Страница не найдена'>";
+		//echo "<img src='/images/404.jpg' alt='Страница не найдена'>";
     }
 }
